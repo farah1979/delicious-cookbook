@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,600;1,700&family=Roboto:wght@400;700&family=Train+One&display=swap');
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+.nav-extended {
+    background: #683b12;
+    min-height: 70px;
+}
+
+
+.logo-image {
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+   
+    margin-top: 5px;
+    margin-bottom: 7px;
+}
+
+.brand-logo {
+    margin-left: 15px;
+}
+
+.sidenav {
+    width: 40%;
+    
+}
+
+.sidenav-trigger i{
+    font-size: 1.8rem;
+    margin-top: 5px;
+}
+
+.sidenav li {
+    line-height: 30px;
+}
+
+.sidenav li>a {
+    line-height: 40px;
+    font-weight: 500;
+    
+   
+}
+
+.sidenav li>h4 {
+    font-size: 1.5rem;
+}
+.menu {
+    color: #683b12;
+    
+}
+.menu:hover {
+    color: #fafafa;
+    
+
+}
+
+.sidenav li>a:hover{
+    background: #3e2723 ;
+    
+}
+
+.page-footer{
+    background: #683b12;
+}

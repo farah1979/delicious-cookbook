@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<!-------------------------
     {% for recipe in get_recipes %}
         {{recipe.category_name}}<br>
         {{recipe.recipe_name}}<br>
@@ -13,4 +14,5 @@
         {{recipe.updated_at}}<br>
         {{recipe.is_veg}}
     {% endfor %}
+    -->
 {% endblock %}
