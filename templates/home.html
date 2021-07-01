@@ -15,96 +15,91 @@
         {{recipe.is_veg}}
     {% endfor %}
     -->
-    <!-----------------------------------------------Slider-images-->
-    <div class="slider">
-        <ul class="slides">
-          <li>
-            <img src="{{url_for('static',filename='images/hero-foto.jpg')}}"> 
-            <div class="caption center-align">
-              <h5>Enjoy with the best international recipes!</h5><i class="fas fa-pepper-hot" aria-hidden="true"></i>
-              <p>Click on the button</p> 
-              
-              <a href="#!" class="btn waves-effect waves-brown">
-               Our Recipes
-              </a>
-            </div>
-          </li>
-          <li>
-            <img src="{{url_for('static',filename='images/add.jpg')}}"> 
-            <div class="caption left-align">
-              <h5>Add your favorite recipes <i class="fas fa-utensils" aria-hidden="true"></i></h5>
-              <p>Click on the button</p> 
-              
-              <a href="#!" class="btn waves-effect waves-brown">
-               Add Recipe
-              </a>
-            </div>
-          </li>
-          <li>
-            <img src="{{url_for('static',filename='images/register.jpg')}}"> 
-            <div class="caption left-align">
-              <h5>Be one of us <i class="far fa-hand-point-left" aria-hidden="true" ></i></h5>
-              <p>Click on the button</p> 
-              
-              <a href="#!" class="btn waves-effect waves-brown">
-                Register 
-              </a>
-            </div>
-          </li>
-        </ul>
+<!-----------------------------------------------Slider-images-->
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <img src="{{url_for('static',filename='images/hero-foto.jpg')}}">
+      <div class="caption center-align">
+        <h5>Enjoy with the best international recipes!</h5><i class="fas fa-pepper-hot" aria-hidden="true"></i>
+        <p>Click on the button</p>
+
+        <a href="#!" class="btn waves-effect waves-brown">
+          Our Recipes
+        </a>
       </div>
+    </li>
+    <li>
+      <img src="{{url_for('static',filename='images/add.jpg')}}">
+      <div class="caption left-align">
+        <h5>Add your favorite recipes <i class="fas fa-utensils" aria-hidden="true"></i></h5>
+        <p>Click on the button</p>
 
-      <a class='dropdown-trigger btn ' href='#' data-target='dropdown1'>Categories</a>
+        <a href="#!" class="btn waves-effect waves-brown">
+          Add Recipe
+        </a>
+      </div>
+    </li>
+    <li>
+      <img src="{{url_for('static',filename='images/register.jpg')}}">
+      <div class="caption left-align">
+        <h5>Be one of us <i class="far fa-hand-point-left" aria-hidden="true"></i></h5>
+        <p>Click on the button</p>
 
-        <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">Main_Course</a></li>
-            <li><a href="#!">Soups</a></li>
-            <li><a href="#!">Salads</a></li>
-            <li><a href="#!">Deserts</a></li>
-            <li><a href="#!">Vegan</a></li>
-            <li><a href="#!">Gluten_free</a></li> 
-          </ul>
+        <a href="#!" class="btn waves-effect waves-brown">
+          Register
+        </a>
+      </div>
+    </li>
+  </ul>
+</div>
+<div>
 
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 text-brown text-darken-4 center-align">
+        <h3>Daily Dish Recipes </h3>
+        <p> Our featured recipes are hand selected daily to give you ideas to cook or bake in the kitchen.</p>
+        <h6>Featured Recipes:</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card small">
+        <h2 class="header">Breakfast</h2>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="{{ url_for('static', filename='images/breakfast.jpg')}}">
+          </div>
+          <div class="card-stacked">
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
+              <p>A great combination of flavors with eggs, sausage, cheese, and peppers. 
+                This make-ahead egg bake is a great addition to any breakfast or brunch table. Give it a southwest 
+                flair by topping it with salsa. Visit our site for more Egg Breakfast recipes.</p>
             </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <div class="card-action">
+              <a href="#">This is a link</a>
             </div>
           </div>
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
-            </div>
+        </div>
+      </div>
+      <div class="card small">
+        <h2 class="header">Grilled Marinated Chicken Recipe</h2>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="{{ url_for('static', filename='images/grilled_marinated_chicken.jpg')}}">
+          </div>
+          <div class="card-stacked">
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
+              <p>With a limited but tasty blend of ingredients, the marinade for this excellent 
+                grilled chicken recipe produces chicken that is ultra-tender and packed with flavor. 
+                Serve it with grilled asparagus and sweet potatoes for a complete meal.</p>
             </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            <div class="card-action">
+              <a href="#">This is a link</a>
             </div>
           </div>
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/office.jpg">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-          </div>
-    
-                
-    
-{% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
