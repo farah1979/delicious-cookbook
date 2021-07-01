@@ -1,84 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!----------------------------Fontawesome-link-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!------------------------------ Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <!---------------------------------style.css-->
-    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" type="text/css">
-    <title>Delicious Cookbook</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href=" {{ url_for('static', filename='images/logo.jpg') }}"/>
+  <!----------------------------Fontawesome-link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!------------------------------ Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    type="text/css">
+  <!---------------------------------style.css-->
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" type="text/css">
+  <title>Delicious Cookbook</title>
 </head>
+
 <body>
 
-    <header>
-        <!--------------------------------------------Navbar -->
-        <nav class="nav-extended">
-            <div class="nav-wrapper">
-              <a href="" class="brand-logo">
-                  <img src="{{url_for('static',filename='images/logo.jpg')}}" alt="logo" class="logo-image">
-              </a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Recipes</a></li>
-                <li><a href="#">Add Recipe</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Log Out</a></li>
-               
-              </ul>
-            </div>
-          </nav>
+  <header>
+    <!--------------------------------------------Navbar -->
+    <nav class="nav-extended">
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo">
+          <img src="{{url_for('static',filename='images/logo.jpg')}}" alt="logo" class="logo-image">
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Add Recipe</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Log In</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="#">Log Out</a></li>
 
-         <!---------------------------------Mobile-bar-->
-          <ul class="sidenav" id="mobile-demo">
-            <li><a href="#"><h4 class="center-align brown-text text-darken-1 ">Cookbook</h4></a></li>
-            <li><a href="#"><span class="menu">Home</span></a></li>
-            <li><a href="#"><span class="menu">Recipes</span></a></li>
-            <li><a href="#"><span class="menu">Add Recipe</span></a></li>
-            <li><a href="#"><span class="menu">Profile</span></a></li>
-            <li><a href="#"><span class="menu">Log In</span></a></li>
-            <li><a href="#"><span class="menu">Register</span></a></li>
-            <li><a href="#"><span class="menu">LogOut</span></a></li>
-          </ul>
-                  
-    </header>
- 
-    {%block content%}
-    {% endblock %}
+        </ul>
+      </div>
+    </nav>
+
+    <!---------------------------------Mobile-bar-->
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="#">
+          <h4 class="center-align brown-text text-darken-1 cook-list ">Cookbook</h4>
+        </a></li>
+      <li><a href="#"><span class="menu">Home</span></a></li>
+      <li><a href="#"><span class="menu">Recipes</span></a></li>
+      <li><a href="#"><span class="menu">Add Recipe</span></a></li>
+      <li><a href="#"><span class="menu">Profile</span></a></li>
+      <li><a href="#"><span class="menu">Log In</span></a></li>
+      <li><a href="#"><span class="menu">Register</span></a></li>
+      <li><a href="#"><span class="menu">LogOut</span></a></li>
+    </ul>
+
+  </header>
+
+  <section style="min-height: 500px;">
+   
+        {%block content%}
+        {% endblock %}
+
     
-    <footer class="page-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text center-align">SOCIAL MEDIA</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          <div class="container center-align">
-          © 2021 Copyright Text
-          </div>
-        </div>
-      </footer>
-    <!-----------------------------------jQuery CDN-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
-            crossorigin="anonymous"></script>
-    <!-----------------------------------Compiled and minified JavaScript or Jquery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
+
+  </section>
+
+  <footer class="page-footer">
+
+    <div class="row center-align">
+      <div class="col  s12">
+        <h5 class="white-text ">SOCIAL MEDIA</h5>
+        <ul>
+          <li class="col s4 ">
+            <a class="grey-text text-lighten-3 media-icon" href="#!">
+              <i class="fab fa-facebook-square" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="col s4 ">
+            <a class="grey-text text-lighten-3 media-icon" href="#!">
+              <i class="fab fa-linkedin" aria-hidden="true">
+              </i>
+            </a>
+          </li>
+          <li class="col s4">
+            <a class="grey-text text-lighten-3 media-icon" href="#!">
+              <i class="fab fa-instagram-square" aria-hidden="true">
+              </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-copyright deep-orange lighten-1">
+      <div class="container center-align">
+        © 2021 Copyright Delicious Cookbook
+      </div>
+    </div>
+  </footer>
+  <!-----------------------------------jQuery CDN-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-----------------------------------Compiled and minified JavaScript or Jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{{url_for('static',filename='js/scripts.js')}}"></script>
 </body>
+
 </html>

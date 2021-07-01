@@ -15,4 +15,96 @@
         {{recipe.is_veg}}
     {% endfor %}
     -->
+    <!-----------------------------------------------Slider-images-->
+    <div class="slider">
+        <ul class="slides">
+          <li>
+            <img src="{{url_for('static',filename='images/hero-foto.jpg')}}"> 
+            <div class="caption center-align">
+              <h5>Enjoy with the best international recipes!</h5><i class="fas fa-pepper-hot" aria-hidden="true"></i>
+              <p>Click on the button</p> 
+              
+              <a href="#!" class="btn waves-effect waves-brown">
+               Our Recipes
+              </a>
+            </div>
+          </li>
+          <li>
+            <img src="{{url_for('static',filename='images/add.jpg')}}"> 
+            <div class="caption left-align">
+              <h5>Add your favorite recipes <i class="fas fa-utensils" aria-hidden="true"></i></h5>
+              <p>Click on the button</p> 
+              
+              <a href="#!" class="btn waves-effect waves-brown">
+               Add Recipe
+              </a>
+            </div>
+          </li>
+          <li>
+            <img src="{{url_for('static',filename='images/register.jpg')}}"> 
+            <div class="caption left-align">
+              <h5>Be one of us <i class="far fa-hand-point-left" aria-hidden="true" ></i></h5>
+              <p>Click on the button</p> 
+              
+              <a href="#!" class="btn waves-effect waves-brown">
+                Register 
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <a class='dropdown-trigger btn ' href='#' data-target='dropdown1'>Categories</a>
+
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Main_Course</a></li>
+            <li><a href="#!">Soups</a></li>
+            <li><a href="#!">Salads</a></li>
+            <li><a href="#!">Deserts</a></li>
+            <li><a href="#!">Vegan</a></li>
+            <li><a href="#!">Gluten_free</a></li> 
+          </ul>
+
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/office.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+              <p><a href="#">This is a link</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/office.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+              <p><a href="#">This is a link</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/office.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+              <p><a href="#">This is a link</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+          </div>
+    
+                
+    
 {% endblock %}
