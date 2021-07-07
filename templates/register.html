@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register')}}">
+        <div class="card" id="reg-card">
+            <div class="card-content">
+                <span class="card-title" id="reg-title">User Registration</span>
+
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m8 offset-m2">
+                    <i class="fas fa-user-lock prefix"></i>
+                    <input id="first_name" name="first_name" type="text" class="validate">
+                    <label for="first_name" class="first_name">First Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m8 offset-m2">
+                    <i class="fas fa-user-lock prefix"></i>
+                    <input id="last_name" name="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m8 offset-m2">
+                    <i class="fas fa-envelope-open-text prefix"></i>
+                    <input id="e_mail" name="e_mail" type="text" class="validate">
+                    <label for="e_mail">Email</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <i class="fas fa-lock prefix"></i>
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <div class="row ">
+                        <p class=" bg_text_color center-align"> New User?</p>
+                        <button type="submit" class="col s8 offset-s2 m4 offset-m4 cneter-align btn text-shadow">
+                            <a href="#" class="white-text text-darken-4 text-shadow">Register 
+                                <i class="far fa-registered">
+                                </i>
+                            </a>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <p class="bg_text_color center-align">Registered already?</p>
+                        <button type="submit" class="col s8  offset-s2 m4 offset-m4 center-align btn text-shadow">
+                            <a href="#" class="white-text text-darken-4 text-shadow">Log In 
+                                <i class="fas fa-sign-in-alt">
+                                </i>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>
+
+{% endblock %}
