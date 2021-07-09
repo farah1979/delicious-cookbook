@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href=" {{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png') }}"/>
+  <link rel="shortcut icon" href=" {{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png') }}" />
   <!----------------------------Fontawesome-link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -33,7 +33,7 @@
           <li><a href="{{url_for('recipes')}}">Recipes</a></li>
           <li><a href="#">Add Recipe</a></li>
           <li><a href="#">Profile</a></li>
-          <li><a href="#">Log In</a></li>
+          <li><a href="{{url_for('login')}}">Log In</a></li>
           <li><a href="{{url_for('register')}}">Register</a></li>
           <li><a href="#">Log Out</a></li>
 
@@ -50,7 +50,7 @@
       <li><a href="{{url_for('recipes')}}"><span class="menu">Recipes</span></a></li>
       <li><a href="#"><span class="menu">Add Recipe</span></a></li>
       <li><a href="#"><span class="menu">Profile</span></a></li>
-      <li><a href="#"><span class="menu">Log In</span></a></li>
+      <li><a href="{{url_for('login')}}"><span class="menu">Log In</span></a></li>
       <li><a href="{{url_for('register')}}"><span class="menu">Register</span></a></li>
       <li><a href="#"><span class="menu">LogOut</span></a></li>
     </ul>
@@ -58,13 +58,23 @@
   </header>
 
   <section>
-   
-        {%block content%}
-        {% endblock %}
-
-    
-
+    {% with messages = get_flashed_messages() %}
+       {% if messages %}
+           {% for message in messages %}
+              <div class="row flashes">
+                <h4 class="message_show">{{ message }}</h4>
+              </div>
+           {% endfor %}
+       {% endif %}
+    {% endwith %}
   </section>
+
+  <main>
+    {%block content%}
+    {% endblock %}
+  </main>
+
+
 
   <footer class="page-footer">
 

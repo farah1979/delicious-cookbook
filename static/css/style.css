@@ -322,9 +322,12 @@ svg {
     font-size: 0.9rem;
 }
 
-.card-action .btn {
+.card-action .btn, .alr-reg .btn {
    background-color: #683b12;
+   margin-bottom: 6px;
 }
+
+
 
 .bg_text_color{
     font-family: "roboto", sans-serif;
@@ -335,4 +338,34 @@ svg {
     padding: 0;
     margin: 0;
     text-transform: uppercase;
+}
+
+.flashes h4, .new_use{
+    font-family: "roboto",sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1px;
+    letter-spacing: 1px;
+    color:#683b12;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.log-card{
+    margin-top: 10px;
+}
+
+.create{
+    font-family: "roboto",sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1px;
+    letter-spacing: 1px;
+    color:#683b12;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+
 }
