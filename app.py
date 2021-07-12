@@ -26,7 +26,9 @@ def home():
 
 @app.route("/recipes")
 def recipes():
-    return render_template("recipes.html")
+    recipes = list(mongo.db.recipes.find())
+    return render_template("recipes.html", recipes=recipes)
+
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -48,10 +50,12 @@ def register():
         } 
         mongo.db.users.insert_one(register_user)
 
+        # Put the new user into session
         session["user"] = (request.form.get("first_name").lower(),
                            request.form.get("last_name").lower())
 
         flash("You have been successfully registered")
+        return redirect(url_for("profile", e_mail=session["user"]))
     return render_template("register.html")
 
 
@@ -59,14 +63,15 @@ def register():
 def login():
     if request.method == "POST":
         exist_user = mongo.db.users.find_one(
-                              {"e_mail": request.form.get("e_mail").lower()})
+                              {"e_mail": request.form.get("e_mail")})
 
         if exist_user:
             #Check Password Matches
             if check_password_hash(
                     exist_user["password"], request.form.get("password")):
-                    session["user"] = (request.form.get("e_mail").lower())
+                    session["user"] = request.form.get("e_mail")
                     flash("Welcome, {}".format(request.form.get("e_mail")))
+                    return redirect(url_for("profile", e_mail=session["user"]))
 
             else:
                 #if the password not matches
@@ -79,6 +84,28 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<e_mail>", methods=["GET", "POST"])
+def profile(e_mail):
+    #grab the session user's username from the database.
+    e_mail = mongo.db.users.find_one(
+             {"e_mail": session["user"]})["e_mail"]
+    if session["user"]:
+        return render_template(
+            "profile.html", e_mail=e_mail)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    #delete user from session
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+    
 
 
 if __name__ == "__main__":

@@ -2,96 +2,53 @@
 {% block content %}
 
 <section>
-    <div class="row">
-      <div class="col s12 center-align">
-        <h3 class="header-title">All Recipes </h3>
-      </div>
+  <div class="row">
+    <div class="col s12 center-align">
+      <h3 class="header-title">All Recipes </h3>
     </div>
+  </div>
+
   
-    <div class="row">
-      <div class="col m3 s12">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{ url_for('static', filename='images/breakfast.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator ">
-              Breakfast
-              <i class="fas fa-ellipsis-v right"></i>
-            </span>
-            <p><a href="#" class="view-recipe">View Recipe</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title brown-text text-darken-4">Overnight Egg Bake
-              <i class="far fa-times-circle right"></i>
-            </span>
-            <p class="par-card">A great combination of flavors with eggs, sausage, cheese, and peppers.
-              This make-ahead egg bake is a great addition to any breakfast or brunch table.
-              Give it a southwest flair by topping it with salsa. Visit our site for more Egg Breakfast recipes.</p>
-          </div>
+
+  {% for recipe in recipes %}
+   
+     
+  <div class="row">
+    <div class="col s12 m3 ">
+      <div class="card">
+        <div class="card-image waves-block waves-light">
+          <img class="activator" src="{{ recipe.image }}"
+                  onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" alt="recipe_image"/>
         </div>
-      </div>
-      <div class="col m3 s12">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{url_for('static', filename='images/oriental_stir_fry.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator">Oriental Stir Fry
-              <i class="fas fa-ellipsis-v right"></i></span>
-            <p><a href="#" class="view-recipe">View Recipe</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Oriental Stir Fry
-              <i class="far fa-times-circle right"></i>
-            </span>
-            <p class="par-card">Create your own Asian meal in your house with this delicious stir fry.
-              Whether you like it over rice or noodles, this dish will please everyone.
-              Serve it with some potstickers to complete the meal.</p>
-          </div>
+        <div class="card-content">
+          <span class="card-title activator " id="title_recipe">
+            {{ recipe.category_name }}:
+            {{ recipe.recipe_name }}
+            <br>
+            <p id="time_cook">
+              <i class="far fa-clock"></i> Preparation time {{ recipe.prep_time }} Min, 
+              <br>
+              Cooking time {{ recipe.cooking_time }} Min.
+              <i class="fas fa-concierge-bell"></i> {{ recipe.serves }} Serves
+            </p>
+            <i class="fas fa-ellipsis-v right"></i>
+          </span>
+          <div class="view_recipe">
+            <a class="btn" href="#">View recipe
+                </a>
+         </div>
         </div>
-      </div>
-      <div class="col m3 s12">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{url_for('static', filename='images/vegetable_soup_sc.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator ">Slow Cooker
-              <i class="fas fa-ellipsis-v right"></i>
-            </span>
-            <p><a href="#" class="view-recipe">View Recipe</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Vegetable Soup
-              <i class="far fa-times-circle right"></i>
-            </span>
-            <p class="par-card">Slow cooking provides subtle flavors to this easy to prepare vegetable soup.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col m3 s12">
-        <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{url_for('static', filename='images/berry_bonanza_custard.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title activator ">Dessert
-              <i class="fas fa-ellipsis-v right"></i>
-            </span>
-            <p><a href="#" class="view-recipe">View Recipe</a></p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Berry Bonanza In Custard Sauce
-              <i class="far fa-times-circle right"></i>
-            </span>
-            <p class="par-card">A dessert for that wonderful time of summer when gardens and farmers'
-              markets are brimming with sun-ripened berries. Use any mix of fully ripe berries.
-              Can be doubled or tripled.</p>
-          </div>
+        <div class="card-reveal">
+          <span class="card-title brown-text text-darken-4">
+            {{recipe.recipe_name}} <i class="far fa-times-circle right"></i>
+          </span>
+          <p>{{ recipe.recipe_description}}</p>
         </div>
       </div>
     </div>
+    {% endfor %}
+  </div>
+</section>
 
 
 
@@ -100,9 +57,4 @@
 
 
 
-
-
-
-
-
-{% endblock %}
+  {% endblock %}
