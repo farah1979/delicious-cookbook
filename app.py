@@ -24,11 +24,49 @@ def home():
     return render_template("home.html", get_recipes=get_recipes)
 
 
-@app.route("/recipes")
+@app.route('/recipes')
 def recipes():
-    recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    '''
+    function render recipes page
+    '''
+    query = request.args.get('query')
+    category = request.args.get('category')
+    # check if search query
+    if query:
+        recipes = list(mongo.db.recipes.find(
+            {"$text": {"$search": query}}))
+        print(query)
+    # check if filtered by category
+    elif category:
+        recipes = list(mongo.db.recipes.find({'category': category}))
+    # check all recipes
+    else:
+        recipes = list(mongo.db.recipes.find().sort("_id", -1))
+    return render_template('recipes.html', recipes=recipes, category=category)
 
+@app.route("/add_recipe", methods=["GET","POST"])
+def add_recipe():
+    if request.method == "POST":
+        is_veg = True if request.form.get("is_veg") else False
+        recipe = {
+                  "category_name": request.form.get("category_name"),
+                  "recipe_name": request.form.get("recipe_name"),
+                  "recipe_description": request.form.get("recipe_description"),
+                  "ingredients": request.form.getlist("ingredients"),
+                  "instructions": request.form.getlist("instructions"),
+                  "Prep_time": request.form.get("Prep_time"),
+                  "cooking_time": request.form.get("cooking_time"),
+                  "serves": request.form.get("serves"),
+                  "created_at": session['user'],
+                  "updated_at": session['user'],
+                  "image": request.form.get("image"),
+                  "is_veg": is_veg
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Your recipe has been successfully added")
+        return redirect(url_for("recipes"))
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_recipe.html", categories=categories)
 
 
 @app.route("/register", methods=["GET", "POST"])

@@ -286,11 +286,11 @@ svg {
     content: "\f023";
     padding-left: 10px;
 }
-
+/*
 .input-field .prefix ~ input {
-    width: 80%;
+    width: 100%;
 }
-
+*/
 .input-field .prefix {
     font-size: 2rem;
     color: #683b12;
@@ -365,8 +365,8 @@ svg {
 
 #title_recipe {
     font-family: "roboto", sans-serif;
-    font-weight: 700;
-    font-size: 1.3rem;
+    font-weight: 500;
+    font-size: 0.9rem;
     color: #683b12;
     line-height: 22px;
     letter-spacing: 1px;
@@ -389,4 +389,25 @@ svg {
     font-size: 0.8rem;
     font-family: "roboto", sans-serif;
     font-weight: 300;
+}
+
+.card-image img{
+    width: auto;
+    max-height: 260px;
+}
+
+.fa-seedling {
+    font-size: 1.5rem;
+    color: green;
+    float: right;
+    top: 0;
+}
+
+/*---------------------------------------Add-recipe-page*/
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #683b12;
+}
+
+.add-submit {
+    background-color: #683b12;
 }
