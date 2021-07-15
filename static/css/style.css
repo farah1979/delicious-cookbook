@@ -282,15 +282,6 @@ svg {
 
 }
 
-.fa-lock:before {
-    content: "\f023";
-    padding-left: 10px;
-}
-/*
-.input-field .prefix ~ input {
-    width: 100%;
-}
-*/
 .input-field .prefix {
     font-size: 2rem;
     color: #683b12;
@@ -410,4 +401,59 @@ svg {
 
 .add-submit {
     background-color: #683b12;
+}
+
+/*---------------------------------------------Profile-page*/
+.own-recipe h4{
+    font-family: "roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #683b12;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.own-recipe h3{
+    font-family: "roboto", sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #683b12;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.own-recipe p{
+    font-family: "roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #683b12;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.addrecipe-btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 5px;
+}
+
+.addrecipe-btn .btn-small {
+    text-align: center;
+    background-color: #683b12;
+    font-size: 20px;
+
+}
+
+.my_recipc_title{
+    font-family: "roboto", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #683b12;
+    
 }

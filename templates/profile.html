@@ -1,14 +1,74 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-      <div class="card-panel ">
-       <h3 class="center-align brown-text text-darken-4">
-           {{ e_mail }}'s Profile
-       </h3>
+<section class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content own-recipe">
+          <span class="card-title">
+            <h4>This is your page</h4>
+            <h3>Add your own recipe</h3>
+          </span>
+          <p>Store your favorite recipes for easy access and share with the Recipes Community.</p>
+        </div>
+        <div class="card-action addrecipe-btn">
+          <a href="{{ url_for('add_recipe')}}" class="waves-effect waves-light btn-small ">Add Your Recipe</a>
+        </div>
       </div>
     </div>
   </div>
+</section>
+
+<div class="row">
+  {% if my_recipes|count > 0 %}
+  <h4 class="my_recipc_title">My recipes</h4>
+  <div class="row">
+    {% for recipe in my_recipes %}
+
+    <div class="col s12 m3 ">
+      <div class="card">
+        <div class="card-image waves-block waves-light">
+          <img class="activator" src="{{ recipe.image }}"
+            onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'"
+            alt="recipe_image" />
+        </div>
+        <div class="card-content">
+          <span class="card-title activator " id="title_recipe">
+            <strong>{{ recipe.category_name }}</strong> :
+            {{ recipe.recipe_name }}
+            {% if recipe.is_veg == true %}
+            <i class="fas fa-seedling tooltipped" data-position="bottom" data-tooltip="I am vegan"></i>
+            {% endif %}
+            <br>
+            <p id="time_cook">
+              <i class="far fa-clock"></i> Preparation time {{ recipe.prep_time }} Min,
+              <br>
+              Cooking time {{ recipe.cooking_time }} Min.
+              <i class="fas fa-concierge-bell"></i> {{ recipe.serves }} Serves
+            </p>
+            <i class="fas fa-ellipsis-v right"></i>
+          </span>
+          <div class="view_recipe">
+            <a class="btn" href="#">View recipe
+            </a>
+          </div>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title brown-text text-darken-4">
+            {{recipe.recipe_name}} <i class="far fa-times-circle right"></i>
+          </span>
+          <p>{{ recipe.recipe_description}}</p>
+          <hr>
+          <p class="brown-text text-darken-4" style="font-size: 0.9rem;"><em>Author: {{recipe.author}}</em></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+<h4 class="profile_subheading">You haven't uploaded recipes yet.</h4>
+{% endif %}
 
 {% endblock %}

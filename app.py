@@ -57,10 +57,11 @@ def add_recipe():
                   "Prep_time": request.form.get("Prep_time"),
                   "cooking_time": request.form.get("cooking_time"),
                   "serves": request.form.get("serves"),
-                  "created_at": session['user'],
-                  "updated_at": session['user'],
+                  "created_at": request.form.get("created_at"),
+                  "updated_at": request.form.get("updated_at") ,
                   "image": request.form.get("image"),
-                  "is_veg": is_veg
+                  "is_veg": is_veg,
+                  "author": session['user']
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Your recipe has been successfully added")
@@ -90,10 +91,11 @@ def register():
 
         # Put the new user into session
         session["user"] = (request.form.get("first_name").lower(),
-                           request.form.get("last_name").lower())
+                           request.form.get("last_name").lower(),
+                           request.form.get("e_mail"))
 
         flash("You have been successfully registered")
-        return redirect(url_for("profile", e_mail=session["user"]))
+        
     return render_template("register.html")
 
 
@@ -109,7 +111,8 @@ def login():
                     exist_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("e_mail")
                     flash("Welcome, {}".format(request.form.get("e_mail")))
-                    return redirect(url_for("profile", e_mail=session["user"]))
+                    return redirect(url_for(
+                            "profile", e_mail=session["user"]))
 
             else:
                 #if the password not matches
@@ -126,14 +129,19 @@ def login():
 
 @app.route("/profile/<e_mail>", methods=["GET", "POST"])
 def profile(e_mail):
-    #grab the session user's username from the database.
     e_mail = mongo.db.users.find_one(
-             {"e_mail": session["user"]})["e_mail"]
-    if session["user"]:
-        return render_template(
-            "profile.html", e_mail=e_mail)
+        {"e_mail": session["user"]})["e_mail"]
 
-    return redirect(url_for("login"))
+    my_recipes = list(
+            mongo.db.recipes.find({"author": e_mail}))
+    if session['user']:
+        return render_template(
+            'profile.html', e_mail=e_mail, my_recipes=my_recipes)
+    return redirect(url_for('login'))
+
+   
+  
+
 
 
 @app.route("/logout")
