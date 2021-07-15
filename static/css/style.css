@@ -417,12 +417,12 @@ svg {
 
 .own-recipe h3{
     font-family: "roboto", sans-serif;
-    font-size: 3rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #683b12;
     text-align: center;
     letter-spacing: 1px;
-    line-height: 20px;
+    line-height: 35px;
     text-transform: uppercase;
 }
 
@@ -453,7 +453,63 @@ svg {
 .my_recipc_title{
     font-family: "roboto", sans-serif;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 2rem;
     color: #683b12;
+    margin-left: 18px;
     
+}
+
+.no_recipe{
+    font-family: "roboto", sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    color: #683b12;
+    text-align: center;
+}
+
+.view_recipe .edit-btn{
+    margin: 12px;
+    display: block ;
+    justify-content: center;
+    align-content: center;
+    background-color: #00c853;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.view_recipe .delete-btn{
+    margin: 12px;
+    display: block ;
+    justify-content: center;
+    align-content: center;
+    background-color: #b71c1c ;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+/*---------------------------------Edit-recipe-page*/
+
+.edit_btn a{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color:#fff;
+    background-color: #b71c1c;
+    margin: 5px;
+}
+
+.edit_btn a:hover{
+    background-color: #cf6a6a;
+}
+.edit_btn button{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color:#fff;
+    background-color: #00c853;
+    margin: 5px;
+}
+
+.edit_btn button:hover{
+    background-color: #3aee85;
 }

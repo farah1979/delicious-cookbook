@@ -70,6 +70,33 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories)
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET","POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        is_veg = True if request.form.get("is_veg") else False
+        update = {
+                  "category_name": request.form.get("category_name"),
+                  "recipe_name": request.form.get("recipe_name"),
+                  "recipe_description": request.form.get("recipe_description"),
+                  "ingredients": request.form.getlist("ingredients"),
+                  "instructions": request.form.getlist("instructions"),
+                  "Prep_time": request.form.get("Prep_time"),
+                  "cooking_time": request.form.get("cooking_time"),
+                  "serves": request.form.get("serves"),
+                  "created_at": request.form.get("created_at"),
+                  "updated_at": request.form.get("updated_at") ,
+                  "image": request.form.get("image"),
+                  "is_veg": is_veg,
+                  "author": session['user']
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
+        flash("Your recipe has been successfully updated")
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_recipe.html",recipe=recipe, categories=categories)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -139,10 +166,6 @@ def profile(e_mail):
             'profile.html', e_mail=e_mail, my_recipes=my_recipes)
     return redirect(url_for('login'))
 
-   
-  
-
-
 
 @app.route("/logout")
 def logout():
@@ -150,8 +173,6 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
-    
 
 
 if __name__ == "__main__":

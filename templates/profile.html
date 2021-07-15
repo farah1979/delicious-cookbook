@@ -22,7 +22,7 @@
 
 <div class="row">
   {% if my_recipes|count > 0 %}
-  <h4 class="my_recipc_title">My recipes</h4>
+  <h4 class="my_recipc_title">My Favorite recipes</h4>
   <div class="row">
     {% for recipe in my_recipes %}
 
@@ -50,8 +50,10 @@
             <i class="fas fa-ellipsis-v right"></i>
           </span>
           <div class="view_recipe">
-            <a class="btn" href="#">View recipe
-            </a>
+            <a class="btn" href="#">View recipe</a>
+            <a class="btn-small edit-btn" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}">
+              Edit <i class="fas fa-plus"></i></a>
+            <a class="btn-small delete-btn" href="#">Delete <i class="fas fa-minus"></i></a>
           </div>
         </div>
         <div class="card-reveal">
@@ -68,7 +70,9 @@
   </div>
 </div>
 {% else %}
-<h4 class="profile_subheading">You haven't uploaded recipes yet.</h4>
+<h4 class="no_recipe">ٍSorry! No recipe has been added yet.
+  <i class="far fa-frown"></i>
+</h4>
 {% endif %}
 
 {% endblock %}
