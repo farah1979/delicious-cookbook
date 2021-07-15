@@ -104,9 +104,6 @@ def delete_recipe(recipe_id):
     return redirect(url_for('recipes'))
 
 
-
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

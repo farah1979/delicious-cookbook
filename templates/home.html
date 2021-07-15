@@ -10,7 +10,7 @@
         <h5>Enjoy with the best international recipes!</h5><i class="fas fa-pepper-hot" aria-hidden="true"></i>
         <p>Click on the button</p>
 
-        <a href="#!" class="btn waves-effect waves-brown">
+        <a href="{{ url_for('recipes')}}" class="btn waves-effect waves-brown">
           Our Recipes
         </a>
       </div>
@@ -18,10 +18,11 @@
     <li>
       <img src="{{url_for('static',filename='images/add.jpg')}}">
       <div class="caption left-align">
-        <h5>Add your favorite recipes <i class="fas fa-utensils" aria-hidden="true"></i></h5>
+        <h5>If you are registered with us, <br>
+            you can add your favorite recipe <i class="fas fa-utensils" aria-hidden="true"></i></h5>
         <p>Click on the button</p>
 
-        <a href="#!" class="btn waves-effect waves-brown">
+        <a href="{{url_for('login')}}" class="btn waves-effect waves-brown">
           Add Recipe
         </a>
       </div>
@@ -32,7 +33,7 @@
         <h5>Be one of us <i class="far fa-hand-point-left" aria-hidden="true"></i></h5>
         <p>Click on the button</p>
 
-        <a href="#!" class="btn waves-effect waves-brown">
+        <a href="{{url_for('register')}}" class="btn waves-effect waves-brown">
           Register
         </a>
       </div>
