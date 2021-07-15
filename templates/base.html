@@ -27,7 +27,7 @@
         <a href="{{url_for('home')}}" class="brand-logo">
           <img src="{{url_for('static',filename='images/logo.jpg')}}" alt="logo" class="logo-image">
         </a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+        <a href="{{ url_for('home')}}" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{url_for('home')}}">Home</a></li>
           <li><a href="{{url_for('recipes')}}">Recipes</a></li>
@@ -47,7 +47,7 @@
 
     <!---------------------------------Mobile-bar-->
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="#">
+      <li><a href="{{url_for('home')}}">
           <h4 class=" brown-text text-darken-1 cook-list ">Cookbook</h4>
         </a></li>
         <li><a href="{{url_for('home')}}">Home</a></li>
@@ -92,18 +92,18 @@
         <h5 class="white-text ">SOCIAL MEDIA</h5>
         <ul>
           <li class="col s4 ">
-            <a class="grey-text text-lighten-3 media-icon" href="#!">
+            <a class="grey-text text-lighten-3 media-icon" href="https://www.facebook.com/">
               <i class="fab fa-facebook-square" aria-hidden="true"></i>
             </a>
           </li>
           <li class="col s4 ">
-            <a class="grey-text text-lighten-3 media-icon" href="#!">
+            <a class="grey-text text-lighten-3 media-icon" href="https://www.linkedin.com/feed/">
               <i class="fab fa-linkedin" aria-hidden="true">
               </i>
             </a>
           </li>
           <li class="col s4">
-            <a class="grey-text text-lighten-3 media-icon" href="#!">
+            <a class="grey-text text-lighten-3 media-icon" href="https://www.instagram.com/">
               <i class="fab fa-instagram-square" aria-hidden="true">
               </i>
             </a>
