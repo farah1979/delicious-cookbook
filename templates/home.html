@@ -41,6 +41,7 @@
   </ul>
 </div>
 <div>
+  <!-------------------------------------------Feature recipes-->
 <section>
   <div class="row">
     <div class="col s12 center-align">
@@ -135,13 +136,13 @@
       </div>
     </div>
   </div>
-
+<!----------------------------------------------Viewall recipes-->
   <div class="col s12 button-recipes " style="text-align: center;">
     <a href="{{('recipes')}}" class="waves-effect waves-light btn center-align">View All Recipes</a>
   </div>
 
   <div class="container">
-    <!---------------------------------------------Main course-recipes-->
+    <!---------------------------------------------Main course-rated-recipes-->
     <h3 class="main-course">Best rated Main Course recipes</h3>
     <div class="row">
       <div class="col s12 m4">
@@ -288,7 +289,7 @@
       </div>
     </div>
 
-    <!---------------------------------------------Dessert-recipes-->
+    <!---------------------------------------------Dessert-rated-recipes-->
     <h3 class="main-course">Best rated Dessert recipes</h3>
     <div class="row">
       <div class="col s12 m4">
@@ -438,47 +439,56 @@
     </div>
 
   </div>
-  <div class="row">
-    <h3 class="latest-recipes">Latest Recipes</h3>
-      <div class="col s12 m3 last-list">
-        <div class="card">
-          <div class="card-image">
-            <a class="btn-floating halfway-fab waves-effect waves-light brown darken-3">Check </a>
-            <img src="{{url_for('static', filename='images/passionfruit-curd-sponge-8.jpg')}}">
-            <span class="card-title ">Passionfruit Curd</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m3 last-list">
-        <div class="card">
-          <div class="card-image">
-            <a class="btn-floating halfway-fab waves-effect waves-light brown darken-3">Check </a>
-            <img src="{{url_for('static', filename='images/raspberry_clafouti.jpg')}}">
-            <span class="card-title">Raspberry Clafouti</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m3 last-list">
-        <div class="card">
-          <div class="card-image">
-            <a class="btn-floating halfway-fab waves-effect waves-light brown darken-3">Check </a>
-            <img src="{{url_for('static', filename='images/ham_egg_toast_cups.jpg')}}">
-            <span class="card-title">Egg And Toast Cups</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m3 last-list">
-        <div class="card">
-          <div class="card-image">
-            <a class="btn-floating halfway-fab waves-effect waves-light brown darken-3">Check </a>
-            <img src="{{url_for('static', filename='images/macaroni_cheese_broccoli_chicken.jpg')}}">
-            <span class="card-title">Macaroni With Chicken</span>
-          </div>
-        </div>
-      </div>
-  </div>
 </section>
+  <!---------------------------------------------------Lastest-recipes-->
+{% if get_recipes|count > 0 %}
+  <h4 class="latest-recipes"> Latest recipes </h4>
+
+  {% for recipe in get_recipes %}
+   
+  <div class="row">
+    <div class="col s12 m3 ">
+      <div class="card">
+        <div class="card-image waves-block waves-light">
+          <img class="activator" src="{{ recipe.image }}"
+                  onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" alt="recipe_image"/>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator " id="title_recipe">
+           <strong>{{ recipe.category_name }}</strong> :
+            {{ recipe.recipe_name }}
+            {% if recipe.is_veg == true %}
+            <i class="fas fa-seedling tooltipped" data-position="bottom" data-tooltip="I am vegan"></i>
+           {% endif %}
+            <br>
+            <p id="time_cook">
+              <i class="far fa-clock"></i> Preparation time {{ recipe.prep_time }} Min, 
+              <br>
+              Cooking time {{ recipe.cooking_time }} Min.
+              <i class="fas fa-concierge-bell"></i> {{ recipe.serves }} Serves
+            </p>
+            <i class="fas fa-ellipsis-v right"></i>
+          </span>
+          <div class="view_recipe">
+            <a class="btn" href="#">View recipe
+                </a>
+         </div>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title brown-text text-darken-4">
+            {{recipe.recipe_name}} <i class="far fa-times-circle right"></i>
+          </span>
+          <p>{{ recipe.recipe_description}}</p>
+          <hr>
+          <p class="brown-text text-darken-4" style="font-size: 0.9rem;"><em>Author: {{recipe.author}}</em></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+  <h3 class="latest-recipes">Stay tuned for our latest recipes</h3>
+{% endif %}
+  
+ 
+
   {% endblock %}
