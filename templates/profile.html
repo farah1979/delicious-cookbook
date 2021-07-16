@@ -19,7 +19,7 @@
     </div>
   </div>
 </section>
-
+<!---------------------------------Veiw recipe in profile-->
 <div class="row">
   {% if my_recipes|count > 0 %}
   <h4 class="my_recipc_title">My Favorite recipes</h4>
@@ -50,13 +50,30 @@
             <i class="fas fa-ellipsis-v right"></i>
           </span>
           <div class="view_recipe">
+            <!---------------------------------------View-recipe-->
             <a class="btn" href="#">View recipe</a>
+            <!---------------------------------------Edit-recipe-->
             <a class="btn-small edit-btn" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}">
               Edit <i class="fas fa-plus"></i></a>
-            <a class="btn-small delete-btn" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}">
-              Delete <i class="fas fa-minus"></i></a>
+          </div>
+          <!---------------------------------------Delete-recipe-->
+          <a class="btn-small delete-btn waves-effect waves-light modal-trigger" href="#delete">Delete</a>
+
+          <!-- Modal Structure -->
+          <div id="delete" class="modal">
+            <div class="modal-content">
+              <h4 class="del-title">Delete Recipe</h4>
+              <p class="del-par">Are you sure you want to delete this recipe?you can not see
+                this in your profile anymore if you delete it.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}"
+                class="modal-close waves-effect btn green ">Confirm</a>
+              <a href="#!" class="modal-close btn red"> Cancel</a>
+            </div>
           </div>
         </div>
+        <!---------------------------------Detail-recipe-->
         <div class="card-reveal">
           <span class="card-title brown-text text-darken-4">
             {{recipe.recipe_name}} <i class="far fa-times-circle right"></i>

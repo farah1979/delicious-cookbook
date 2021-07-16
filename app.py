@@ -26,7 +26,10 @@ def home():
 
 @app.route('/recipes')
 def recipes():
-   
+    """
+    Function render all recipes in the page
+    """
+
     recipes = list(mongo.db.recipes.find().sort("_id", -1))
     return render_template('recipes.html', recipes=recipes)
 

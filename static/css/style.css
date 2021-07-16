@@ -493,7 +493,7 @@ svg {
     font-weight: 500;
 }
 
-.view_recipe .delete-btn{
+ .delete-btn{
     margin: 12px;
     display: block ;
     justify-content: center;
@@ -502,6 +502,23 @@ svg {
     text-align: center;
     font-size: 1.3rem;
     font-weight: 500;
+}
+
+.del-title{
+    font-family: "roboto",sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color:#683b12;
+    letter-spacing: 1px;
+    
+}
+
+.del-par{
+    font-family: "roboto",sans-serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color:#683b12;
+    letter-spacing: 1px;
 }
 
 /*---------------------------------Edit-recipe-page*/

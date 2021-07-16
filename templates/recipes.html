@@ -7,8 +7,8 @@
       <h3 class="header-title">All Recipes </h3>
     </div>
   </div>
-
-  <div class="row card-panel grey lighten-5">
+<section class="container">
+  <div class="row card-panel lighten-5">
     <form action="{{ url_for('search') }}" method="post" class="col s12">
         <div class="row valign-wrapper center-align">
             <div class="input-field col s12 m8">
@@ -25,6 +25,7 @@
         </div>
     </form>
 </div>
+</section>
   
 {% if recipes|length > 0 %}
   {% for recipe in recipes %}
@@ -72,7 +73,7 @@
   {% else %}
   <div class="row">
     <div class="col s12 center-align">
-      <h3 class="red text-shadow">No Result Found </h3>
+      <h3 class="red-text text-shadow">No Result Found </h3>
     </div>
   </div>
 {% endif %}
