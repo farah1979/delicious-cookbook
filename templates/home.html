@@ -152,8 +152,8 @@
           </div>
           <div class="card-content">
             <span class="card-title title">Aubergine-parmigiana</span>
-            <p>London restaurateur Nicholas Balfe created this aubergine parmigiana recipe after watching
-              and being inspired by – Jon Favreau’s film Chef. It can be served as a main meal or in a street food-style
+            <p>London restaurateur Nicholas Balfe created this aubergine parmigiana recipe.
+               It can be served as a main meal or in a street food-style
             </p>
             <input type="radio" name="stars-1" id="star-1" />
             <label for="star-1">
@@ -299,9 +299,8 @@
           </div>
           <div class="card-content">
             <span class="card-title title">Banoffee cheesecake</span>
-            <p>Bananas, caramel, biscuit and cream – with such a heavenly combination of flavours,
-              there’s no wonder banoffee pie remains a firm dessert favourite. It makes an impressive party
-              piece but is still quick.
+            <p>Bananas, caramel, biscuit and cream – with such a heavenly combination of flavours.
+               It makes an impressive party piece but is still quick.
             </p>
             <input type="radio" name="stars-1" id="star-1" />
             <label for="star-1">
@@ -470,7 +469,7 @@
             <i class="fas fa-ellipsis-v right"></i>
           </span>
           <div class="view_recipe">
-            <a class="btn" href="#">View recipe
+            <a class="btn" href="{{ url_for('recipe_detial', recipe_id=recipe._id) }}">View recipe
                 </a>
          </div>
         </div>

@@ -41,6 +41,14 @@ def search():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/recipe_detial/<recipe_id>")
+def recipe_detial(recipe_id):
+    
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    return render_template("recipe_detial.html",recipe=recipe)
+
+
 @app.route("/add_recipe", methods=["GET","POST"])
 def add_recipe():
     if request.method == "POST":
