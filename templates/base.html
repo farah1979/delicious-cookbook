@@ -32,7 +32,7 @@
           <li><a href="{{url_for('home')}}">Home</a></li>
           <li><a href="{{url_for('recipes')}}">Recipes</a></li>
           {% if session.user %}
-            {% if session.user ==  "admin"| lower %}
+            {% if session.user ==  "adminfa"| lower %}
                  <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
             {% endif %}
              <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
