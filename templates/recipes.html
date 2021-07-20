@@ -33,7 +33,7 @@
     {% for recipe in recipes %}
 
     <div class="col s12 m4 ">
-      <div class="card">
+      <div class="card ">
         <div class="card-image waves-block waves-light">
           <img class="activator" src="{{ recipe.image }}"
             onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'"
