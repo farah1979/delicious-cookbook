@@ -1,84 +1,71 @@
-{% extends "base.html" %}
-{% block content %}
-
+{% extends "base.html" %} {% block content %}
 
 <div class="row">
-  <div class="col s12 center-align">
-    <h3 class="header-title">All Recipes </h3>
-  </div>
+    <div class="col s12 center-align">
+        <h3 class="header-title">All Recipes</h3>
+    </div>
 </div>
 <section class="container">
-  <div class="row ">
-    <form action="{{ url_for('search') }}" method="post" class="col s12">
-      <div class="row valign-wrapper center-align">
-        <div class="input-field col s12 m8 search-col">
-          <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-          <input type="text" name="query" id="query" minlength="3" class="validate" required>
-          <label for="query">Search Recipes</label>
-        </div>
-        <div class="col s12 m4 search_field">
-          <a href="{{ url_for('recipes') }}" class="red btn text-shadow">Reset</a>
-          <button type="submit" class="light-blue darken-1 btn text-shadow search">
-            <i class="fas fa-search left"></i>Search
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
+    <div class="row">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8 search-col">
+                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required />
+                    <label for="query" style="font-size: 10px;">Search Recipes</label>
+                </div>
+                <div class="col s12 m4 search_field">
+                    <a href="{{ url_for('recipes') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow search"><i class="fas fa-search left"></i>Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 
-<section >
-  <div class="row">
-    {% if recipes|length > 0 %}
-    {% for recipe in recipes %}
+<section class="container" style="width: 90%;">
+    <div class="row">
+        {% if recipes|length > 0 %} {% for recipe in recipes %}
 
-    <div class="col s12 m4 ">
-      <div class="card ">
-        <div class="card-image waves-block waves-light">
-          <img class="activator" src="{{ recipe.image }}"
-            onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'"
-            alt="recipe_image" />
+        <div class="col s12 m4">
+            <div class="card recipes-card">
+                <div class="card-image waves-block waves-light">
+                    <img class="activator" src="{{ recipe.image }}" onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" alt="recipe_image" />
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator" id="title_recipe">
+                        {{ recipe.recipe_name }} {% if recipe.is_veg == true %}
+                        <i class="fas fa-seedling tooltipped" data-position="bottom" data-tooltip="I am vegan"></i>
+                        {% endif %}
+                        <br />
+                        <span id="time_cook">
+                            <i class="far fa-clock"></i> Preparation time {{ recipe.prep_time }} Min,
+                            <br />
+                            Cooking time {{ recipe.cooking_time }} Min.
+                            <i class="fas fa-concierge-bell"></i> {{ recipe.serves }} Serves
+                        </span>
+                        <span class="categ_title">Category: {{recipe.category_name| capitalize}}</span>
+                        <i class="fas fa-ellipsis-v right"></i>
+                    </span>
+                    <div class="view_recipe">
+                        <a class="btn" href="{{ url_for('recipe_detial', recipe_id=recipe._id) }}">View recipe </a>
+                    </div>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title brown-text text-darken-4"> {{recipe.recipe_name}} <i class="far fa-times-circle right"></i> </span>
+                    <p>{{ recipe.recipe_description}}</p>
+                    <hr />
+                    <p class="brown-text text-darken-4" style="font-size: 0.9rem;"><em>Author: {{recipe.author}}</em></p>
+                </div>
+            </div>
         </div>
-        <div class="card-content">
-          <span class="card-title activator " id="title_recipe">
-            {{ recipe.category_name }}:
-            {{ recipe.recipe_name }}
-            {% if recipe.is_veg == true %}
-            <i class="fas fa-seedling tooltipped" data-position="bottom" data-tooltip="I am vegan"></i>
-            {% endif %}
-            <br>
-            <p id="time_cook">
-              <i class="far fa-clock"></i> Preparation time {{ recipe.prep_time }} Min,
-              <br>
-              Cooking time {{ recipe.cooking_time }} Min.
-              <i class="fas fa-concierge-bell"></i> {{ recipe.serves }} Serves
-            </p>
-            <i class="fas fa-ellipsis-v right"></i>
-          </span>
-          <div class="view_recipe">
-            <a class="btn" href="{{ url_for('recipe_detial', recipe_id=recipe._id) }}">View recipe
-            </a>
-          </div>
+        {% endfor %} {% else %}
+        <div class="row">
+            <div class="col s12 center-align">
+                <h3 class="red-text text-shadow">No Result Found</h3>
+            </div>
         </div>
-        <div class="card-reveal">
-          <span class="card-title brown-text text-darken-4">
-            {{recipe.recipe_name}} <i class="far fa-times-circle right"></i>
-          </span>
-          <p>{{ recipe.recipe_description}}</p>
-          <hr>
-          <p class="brown-text text-darken-4" style="font-size: 0.9rem;"><em>Author: {{recipe.author}}</em></p>
-        </div>
-      </div>
+        {% endif %}
     </div>
-    {% endfor %}
- 
-   {% else %}
-   <div class="row">
-    <div class="col s12 center-align">
-      <h3 class="red-text text-shadow">No Result Found </h3>
-    </div>
-   </div>
-   {% endif %}
-  </div>
 </section>
 {% endblock %}

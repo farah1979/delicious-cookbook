@@ -1,493 +1,456 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <!-----------------------------------------------Slider-images-->
 <div class="slider">
-  <ul class="slides">
-    <li>
-      <img src="{{url_for('static',filename='images/hero-foto.jpg')}}">
-      <div class="caption center-align">
-        <h5>Enjoy with the best international recipes!</h5><i class="fas fa-pepper-hot" aria-hidden="true"></i>
-        <p>Click on the button</p>
+    <ul class="slides">
+        <li>
+            <img src="{{url_for('static',filename='images/hero-foto.jpg')}}" alt="hero-img" />
+            <div class="caption center-align">
+                <h5>Enjoy with the best international recipes!</h5>
+                <i class="fas fa-pepper-hot" aria-hidden="true"></i>
+                <p>Click on the button</p>
 
-        <a href="{{ url_for('recipes')}}" class="btn waves-effect waves-brown">
-          Our Recipes
-        </a>
-      </div>
-    </li>
-    <li>
-      <img src="{{url_for('static',filename='images/add.jpg')}}">
-      <div class="caption left-align">
-        <h5>If you are registered with us, <br>
-            you can add your favorite recipe <i class="fas fa-utensils" aria-hidden="true"></i></h5>
-        <p>Click on the button</p>
-
-        <a href="{{url_for('login')}}" class="btn waves-effect waves-brown">
-          Add Recipe
-        </a>
-      </div>
-    </li>
-    <li>
-      <img src="{{url_for('static',filename='images/register.jpg')}}">
-      <div class="caption left-align">
-        <h5>Be one of us <i class="far fa-hand-point-left" aria-hidden="true"></i></h5>
-        <p>Click on the button</p>
-
-        <a href="{{url_for('register')}}" class="btn waves-effect waves-brown">
-          Register
-        </a>
-      </div>
-    </li>
-  </ul>
-</div>
-<div>
-  <!-------------------------------------------Feature recipes-->
-<section>
-  <div class="row">
-    <div class="col s12 center-align">
-      <h3 class="header-title">Daily Dish Recipes </h3>
-      <p class="header-par"> Our featured recipes are hand selected daily to give you ideas to cook or bake in the
-        kitchen.</p>
-      <h6 class="feature">Featured Recipes:</h6>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col m3 s12">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{ url_for('static', filename='images/breakfast.jpg')}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator ">
-            Breakfast
-            <i class="fas fa-ellipsis-v right"></i>
-          </span>
-          <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title brown-text text-darken-4">Overnight Egg Bake
-            <i class="far fa-times-circle right"></i>
-          </span>
-          <p class="par-card">A great combination of flavors with eggs, sausage, cheese, and peppers.
-            This make-ahead egg bake is a great addition to any breakfast or brunch table.
-            Give it a southwest flair by topping it with salsa. Visit our site for more Egg Breakfast recipes.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col m3 s12">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{url_for('static', filename='images/oriental_stir_fry.jpg')}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator">Oriental Stir Fry
-            <i class="fas fa-ellipsis-v right"></i></span>
-          <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Oriental Stir Fry
-            <i class="far fa-times-circle right"></i>
-          </span>
-          <p class="par-card">Create your own Asian meal in your house with this delicious stir fry.
-            Whether you like it over rice or noodles, this dish will please everyone.
-            Serve it with some potstickers to complete the meal.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col m3 s12">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{url_for('static', filename='images/vegetable_soup_sc.jpg')}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator ">Slow Cooker
-            <i class="fas fa-ellipsis-v right"></i>
-          </span>
-          <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Vegetable Soup
-            <i class="far fa-times-circle right"></i>
-          </span>
-          <p class="par-card">Slow cooking provides subtle flavors to this easy to prepare vegetable soup.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col m3 s12">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{{url_for('static', filename='images/berry_bonanza_custard.jpg')}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator ">Dessert
-            <i class="fas fa-ellipsis-v right"></i>
-          </span>
-          <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Berry Bonanza In Custard Sauce
-            <i class="far fa-times-circle right"></i>
-          </span>
-          <p class="par-card">A dessert for that wonderful time of summer when gardens and farmers'
-            markets are brimming with sun-ripened berries. Use any mix of fully ripe berries.
-            Can be doubled or tripled.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-<!----------------------------------------------Viewall recipes-->
-  <div class="col s12 button-recipes " style="text-align: center;">
-    <a href="{{('recipes')}}" class="waves-effect waves-light btn center-align">View All Recipes</a>
-  </div>
-
-  <div class="container">
-    <!---------------------------------------------Main course-rated-recipes-->
-    <h3 class="main-course">Best rated Main Course recipes</h3>
-    <div class="row">
-      <div class="col s12 m4">
-        <div class="card">
-          <div class="card-image">
-            <img src="{{url_for('static', filename='images/Aubergine-Parmigiana-sandwich-768.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title title">Aubergine-parmigiana</span>
-            <p>London restaurateur Nicholas Balfe created this aubergine parmigiana recipe.
-               It can be served as a main meal or in a street food-style
-            </p>
-            <input type="radio" name="stars-1" id="star-1" />
-            <label for="star-1">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-2" id="star-2" />
-            <label for="star-2">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-3" id="star-3" />
-            <label for="star-3">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-4" id="star-4" />
-            <label for="star-4">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-5" id="star-5" />
-            <label for="star-5">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <label for="star-null" class="  right">
-              <i class="fas fa-bread-slice food-icon"></i>
-              <span class="food-stl">Medium</span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m4">
-        <div class="card">
-          <div class="card-image">
-            <img src="{{url_for('static', filename='images/T-bone.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title title">T-bone steak with coffee </span>
-            <p>Grill or barbecue these juicy T-bone steaks with coffee rub for the ultimate flavour kick.
-              Serve with rosemary potatoes for an easy summer lunch.
-
-            </p>
-            <input type="radio" name="stars-1" id="star-1" />
-            <label for="star-1">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-2" id="star-2" />
-            <label for="star-2">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-3" id="star-3" />
-            <label for="star-3">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-4" id="star-4" />
-            <label for="star-4">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-5" id="star-5" />
-            <label for="star-5">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <label for="star-null" class="  right">
-              <i class="fas fa-bread-slice food-icon"></i>
-              <span class="food-stl">Easy</span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m4">
-        <div class="card">
-          <div class="card-image">
-            <img src="{{url_for('static', filename='images/CHICKEN_FLATBREADS.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title title">Roast chicken with flatbreads</span>
-            <p>This lip-smacking harissa roast chicken traybake recipe uses Moroccan-inspired
-              flavours in the marinade and is served with homemade flatbreads.
-            </p>
-            <input type="radio" name="stars-1" id="star-1" />
-            <label for="star-1">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-2" id="star-2" />
-            <label for="star-2">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-3" id="star-3" />
-            <label for="star-3">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-4" id="star-4" />
-            <label for="star-4">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-5" id="star-5" />
-            <label for="star-5">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <label for="star-null" class="  right">
-              <i class="fas fa-bread-slice food-icon"></i>
-              <span class="food-stl">Easy</span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!---------------------------------------------Dessert-rated-recipes-->
-    <h3 class="main-course">Best rated Dessert recipes</h3>
-    <div class="row">
-      <div class="col s12 m4">
-        <div class="card">
-          <div class="card-image">
-            <img src="{{url_for('static', filename='images/banoffee-cheesecake.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title title">Banoffee cheesecake</span>
-            <p>Bananas, caramel, biscuit and cream – with such a heavenly combination of flavours.
-               It makes an impressive party piece but is still quick.
-            </p>
-            <input type="radio" name="stars-1" id="star-1" />
-            <label for="star-1">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-2" id="star-2" />
-            <label for="star-2">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-3" id="star-3" />
-            <label for="star-3">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-4" id="star-4" />
-            <label for="star-4">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-5" id="star-5" />
-            <label for="star-5">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <label for="star-null" class="  right">
-              <i class="fas fa-bread-slice food-icon"></i>
-              <span class="food-stl">Medium</span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m4">
-        <div class="card">
-          <div class="card-image">
-            <img src="{{url_for('static', filename='images/GB_apple-crisps.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title title">Apple and ginger </span>
-            <p>If you reach for yogurt after a meal, try adding grated apple and crushed biscuits for
-              something a bit special. This healthy recipe is ideal as a snack or a light dessert.
-              It makes an impressive party.
-            </p>
-            <input type="radio" name="stars-1" id="star-1" />
-            <label for="star-1">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-2" id="star-2" />
-            <label for="star-2">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-3" id="star-3" />
-            <label for="star-3">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-4" id="star-4" />
-            <label for="star-4">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-5" id="star-5" />
-            <label for="star-5">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <label for="star-null" class="  right">
-              <i class="fas fa-bread-slice food-icon"></i>
-              <span class="food-stl">Easy</span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="col s12 m4">
-        <div class="card">
-          <div class="card-image">
-            <img src="{{url_for('static', filename='images/GB_frozenyoghut.jpg')}}">
-          </div>
-          <div class="card-content">
-            <span class="card-title title">Frozen yogurt</span>
-            <p>This tropical frozen yogurt recipe comes served with crispy shards of buttery biscuits
-              – a perfect summertime dessert.This frozen recipe is ideal as dessert.
-              It makes an impressive party.
-            </p>
-            <input type="radio" name="stars-1" id="star-1" />
-            <label for="star-1">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-2" id="star-2" />
-            <label for="star-2">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-3" id="star-3" />
-            <label for="star-3">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-4" id="star-4" />
-            <label for="star-4">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <input type="radio" name="stars-5" id="star-5" />
-            <label for="star-5">
-              <svg width="25" height="20" viewBox="0 0 51 48">
-                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
-              </svg>
-            </label>
-            <label for="star-null" class="  right">
-              <i class="fas fa-bread-slice food-icon"></i>
-              <span class="food-stl">Easy</span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-  <!---------------------------------------------------Lastest-recipes-->
-{% if get_recipes|count > 0 %}
-  <h4 class="latest-recipes"> Latest recipes </h4>
-
-  {% for recipe in get_recipes %}
-   
-  <div class="row">
-    <div class="col s12 m3 ">
-      <div class="card">
-        <div class="card-image waves-block waves-light">
-          <img class="activator" src="{{ recipe.image }}"
-                  onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" alt="recipe_image"/>
-        </div>
-        <div class="card-content">
-          <span class="card-title activator " id="title_recipe">
-           <strong>{{ recipe.category_name }}</strong> :
-            {{ recipe.recipe_name }}
-            {% if recipe.is_veg == true %}
-            <i class="fas fa-seedling tooltipped" data-position="bottom" data-tooltip="I am vegan"></i>
-           {% endif %}
-            <br>
-            <p id="time_cook">
-              <i class="far fa-clock"></i> Preparation time {{ recipe.prep_time }} Min, 
-              <br>
-              Cooking time {{ recipe.cooking_time }} Min.
-              <i class="fas fa-concierge-bell"></i> {{ recipe.serves }} Serves
-            </p>
-            <i class="fas fa-ellipsis-v right"></i>
-          </span>
-          <div class="view_recipe">
-            <a class="btn" href="{{ url_for('recipe_detial', recipe_id=recipe._id) }}">View recipe
+                <a href="{{ url_for('recipes')}}" class="btn waves-effect waves-brown">
+                    Our Recipes
                 </a>
-         </div>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title brown-text text-darken-4">
-            {{recipe.recipe_name}} <i class="far fa-times-circle right"></i>
-          </span>
-          <p>{{ recipe.recipe_description}}</p>
-          <hr>
-          <p class="brown-text text-darken-4" style="font-size: 0.9rem;"><em>Author: {{recipe.author}}</em></p>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  {% else %}
-  <h3 class="latest-recipes">Stay tuned for our latest recipes</h3>
-{% endif %}
-  
- 
+            </div>
+        </li>
+        <li>
+            <img src="{{url_for('static',filename='images/add.jpg')}}" alt="add-image" />
+            <div class="caption left-align">
+                <h5>
+                    If you are registered with us, <br />
+                    you can add your favorite recipe <i class="fas fa-utensils" aria-hidden="true"></i>
+                </h5>
+                <p>Click on the button</p>
 
-  {% endblock %}
+                <a href="{{url_for('login')}}" class="btn waves-effect waves-brown">
+                    Add Recipe
+                </a>
+            </div>
+        </li>
+        <li>
+            <img src="{{url_for('static',filename='images/register.jpg')}}" alt="reg-img" />
+            <div class="caption left-align">
+                <h5>Be one of us <i class="far fa-hand-point-left" aria-hidden="true"></i></h5>
+                <p>Click on the button</p>
+
+                <a href="{{url_for('register')}}" class="btn waves-effect waves-brown">
+                    Register
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-------------------------------------------Feature recipes-->
+<section>
+    <div class="row">
+        <div class="col s12 center-align">
+            <h3 class="header-title">Daily Dish Recipes</h3>
+            <p class="header-par">Our featured recipes are hand selected daily to give you ideas to cook or bake in the kitchen.</p>
+            <h6 class="feature">Featured Recipes:</h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col m3 s12">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ url_for('static', filename='images/breakfast.jpg')}}" alt="T-recipe" />
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator">
+                        Breakfast
+                        <i class="fas fa-ellipsis-v right"></i>
+                    </span>
+                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title brown-text text-darken-4">
+                        Overnight Egg Bake
+                        <i class="far fa-times-circle right"></i>
+                    </span>
+                    <p class="par-card">
+                        A great combination of flavors with eggs, sausage, cheese, and peppers. This make-ahead egg bake is a great addition to any breakfast or brunch table. Give it a southwest flair by topping it with salsa. Visit our
+                        site for more Egg Breakfast recipes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col m3 s12">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{url_for('static', filename='images/oriental_stir_fry.jpg')}}" alt="recipe-orienatl" />
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator">Oriental Stir Fry <i class="fas fa-ellipsis-v right"></i></span>
+                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        Oriental Stir Fry
+                        <i class="far fa-times-circle right"></i>
+                    </span>
+                    <p class="par-card">
+                        Create your own Asian meal in your house with this delicious stir fry. Whether you like it over rice or noodles, this dish will please everyone. Serve it with some potstickers to complete the meal.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col m3 s12">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{url_for('static', filename='images/vegetable_soup_sc.jpg')}}" alt="veg-recipe" />
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator">
+                        Slow Cooker
+                        <i class="fas fa-ellipsis-v right"></i>
+                    </span>
+                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        Vegetable Soup
+                        <i class="far fa-times-circle right"></i>
+                    </span>
+                    <p class="par-card">Slow cooking provides subtle flavors to this easy to prepare vegetable soup.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col m3 s12">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{url_for('static', filename='images/berry_bonanza_custard.jpg')}}" alt="berry-recipe" />
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator">
+                        Dessert
+                        <i class="fas fa-ellipsis-v right"></i>
+                    </span>
+                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        Berry Bonanza In Custard Sauce
+                        <i class="far fa-times-circle right"></i>
+                    </span>
+                    <p class="par-card">A dessert for that wonderful time of summer when gardens and farmers' markets are brimming with sun-ripened berries. Use any mix of fully ripe berries. Can be doubled or tripled.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------Viewall recipes-->
+    <div class="col s12 button-recipes" style="text-align: center;">
+        <a href="{{('recipes')}}" class="waves-effect waves-light btn center-align">View All Recipes</a>
+    </div>
+
+    <div class="container">
+        <!---------------------------------------------Main course-rated-recipes-->
+        <h3 class="main-course">Best rated Main Course recipes</h3>
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{url_for('static', filename='images/Aubergine-Parmigiana-sandwich-768.jpg')}}" alt="abu-recipe" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title title">Aubergine-parmigiana</span>
+                        <p>London restaurateur Nicholas Balfe created this aubergine parmigiana recipe. It can be served as a main meal or in a street food-style</p>
+                        <input type="radio" name="stars-1" id="star-1" />
+                        <label for="star-1">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-2" id="star-2" />
+                        <label for="star-2">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-3" id="star-3" />
+                        <label for="star-3">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-4" id="star-4" />
+                        <label for="star-4">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-5" id="star-5" />
+                        <label for="star-5">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+
+                        <span class="food-stl"><i class="fas fa-bread-slice food-icon"></i> Medium</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{url_for('static', filename='images/T-bone.jpg')}}" alt="recipe" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title title">T-bone steak with coffee </span>
+                        <p>Grill or barbecue these juicy T-bone steaks with coffee rub for the ultimate flavour kick. Serve with rosemary potatoes for an easy summer lunch.</p>
+                        <input type="radio" name="stars-6" id="star-6" />
+                        <label for="star-6">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-7" id="star-7" />
+                        <label for="star-7">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-8" id="star-8" />
+                        <label for="star-8">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-9" id="star-9" />
+                        <label for="star-9">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-10" id="star-10" />
+                        <label for="star-10">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <span class="food-stl"><i class="fas fa-bread-slice food-icon"></i> Medium</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{url_for('static', filename='images/CHICKEN_FLATBREADS.jpg')}}" alt="chicken-recipe" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title title">Roast chicken with flatbreads</span>
+                        <p>This lip-smacking harissa roast chicken traybake recipe uses Moroccan-inspired flavours in the marinade and is served with homemade flatbreads.</p>
+                        <input type="radio" name="stars-11" id="star-11" />
+                        <label for="star-11">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-12" id="star-12" />
+                        <label for="star-12">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-13" id="star-13" />
+                        <label for="star-13">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-14" id="star-14" />
+                        <label for="star-14">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-15" id="star-15" />
+                        <label for="star-15">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <span class="food-stl"><i class="fas fa-bread-slice food-icon"></i> Easy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---------------------------------------------Dessert-rated-recipes-->
+        <h3 class="main-course">Best rated Dessert recipes</h3>
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{url_for('static', filename='images/banoffee-cheesecake.jpg')}}" alt="cake-recipe" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title title">Banoffee cheesecake</span>
+                        <p>Bananas, caramel, biscuit and cream – with such a heavenly combination of flavours. It makes an impressive party piece but is still quick.</p>
+                        <input type="radio" name="stars-16" id="star-16" />
+                        <label for="star-16">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-17" id="star-17" />
+                        <label for="star-17">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-18" id="star-18" />
+                        <label for="star-18">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-19" id="star-19" />
+                        <label for="star-19">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-20" id="star-20" />
+                        <label for="star-20">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <span class="food-stl"><i class="fas fa-bread-slice food-icon"></i> Easy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{url_for('static', filename='images/GB_apple-crisps.jpg')}}" alt="gb-recipe" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title title">Apple and ginger </span>
+                        <p>If you reach for yogurt after a meal, try adding grated apple and crushed biscuits for something a bit special. This healthy recipe is ideal as a snack or a light dessert. It makes an impressive party.</p>
+                        <input type="radio" name="stars-21" id="star-21" />
+                        <label for="star-21">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-22" id="star-22" />
+                        <label for="star-22">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-23" id="star-23" />
+                        <label for="star-23">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-24" id="star-24" />
+                        <label for="star-24">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-25" id="star-25" />
+                        <label for="star-25">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <span class="food-stl"><i class="fas fa-bread-slice food-icon"></i> Medium</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{url_for('static', filename='images/GB_frozenyoghut.jpg')}}" alt="frozen-recipe" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title title">Frozen yogurt</span>
+                        <p>This tropical frozen yogurt recipe comes served with crispy shards of buttery biscuits – a perfect summertime dessert.This frozen recipe is ideal as dessert. It makes an impressive party.</p>
+                        <input type="radio" name="stars-26" id="star-26" />
+                        <label for="star-26">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-27" id="star-27" />
+                        <label for="star-27">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-28" id="star-28" />
+                        <label for="star-28">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-29" id="star-29" />
+                        <label for="star-29">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <input type="radio" name="stars-30" id="star-30" />
+                        <label for="star-30">
+                            <svg width="25" height="20" viewBox="0 0 51 48">
+                                <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z" />
+                            </svg>
+                        </label>
+                        <span class="food-stl"><i class="fas fa-bread-slice food-icon"></i> Easy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---------------------------------------------------Lastest-recipes-->
+{% if get_recipes|count > 0 %}
+<h4 class="latest-recipes">Latest recipes</h4>
+<div class="row">
+    {% for recipe in get_recipes %}
+
+    <div class="col s12 m3">
+        <div class="card">
+            <div class="card-image waves-block waves-light">
+                <img class="activator" src="{{ recipe.image }}" onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" alt="recipe_image" />
+            </div>
+            <div class="card-content">
+                <span class="card-title activator" id="title_recipe">
+                    <strong>{{ recipe.category_name }}</strong> : {{ recipe.recipe_name }} {% if recipe.is_veg == true %}
+                    <i class="fas fa-seedling tooltipped" data-position="bottom" data-tooltip="I am vegan"></i>
+                    {% endif %}
+                    <br />
+                    <span id="time_cook">
+                        <i class="far fa-clock"></i> Preparation time {{ recipe.prep_time }} Min,
+                        <br />
+                        Cooking time {{ recipe.cooking_time }} Min.
+                        <i class="fas fa-concierge-bell"></i> {{ recipe.serves }} Serves
+                    </span>
+                    <i class="fas fa-ellipsis-v right"></i>
+                </span>
+                <div class="view_recipe">
+                    <a class="btn" href="{{ url_for('recipe_detial', recipe_id=recipe._id) }}">View recipe </a>
+                </div>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title brown-text text-darken-4"> {{recipe.recipe_name}} <i class="far fa-times-circle right"></i> </span>
+                <p>{{ recipe.recipe_description}}</p>
+                <hr />
+                <p class="brown-text text-darken-4" style="font-size: 0.9rem;"><em>Author: {{recipe.author}}</em></p>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% else %}
+<h3 class="latest-recipes">Stay tuned for our latest recipes</h3>
+{% endif %} 
+{% endblock %}

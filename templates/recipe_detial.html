@@ -1,155 +1,58 @@
-{% extends "base.html" %}
-{% block content %}
-
+{% extends "base.html" %} {% block content %}
 <h2 class="created_author">Created by: {{ recipe.author}}</h2>
-
-
+<div class="row">
+    <div class="col s12 m4 offset-m2">
+        <img class="recipe_image" src="{{ recipe.image }}" 
+        onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png') }}'" 
+        alt="recipe_img" />
+    </div>
+    <div class="col s12 s12 m4">
+        <h2 class="created_author">Meal Category: {{recipe.category_name}}</h2>
+        <h2 class="recipe_head">{{ recipe.recipe_name}}</h2>
+        <h6 class="recipe-description">{{ recipe.recipe_description }}</h6>
+    </div>
+    <div class="col s12 m4 recipe_table">
+        <hr style="border: 1px solid #683b12;" />
+        <table>
+            <thead>
+                <tr>
+                    <th>Prep Time</th>
+                    <th>Cooking Time</th>
+                    <th>Serves</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="far fa-clock"></i> {{recipe.prep_time}} minutes</td>
+                    <td><i class="fas fa-fire"></i> {{recipe.cooking_time}} minutes</td>
+                    <td><i class="fas fa-concierge-bell"></i> {{recipe.serves}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<section class="container">
     <div class="row">
-        <div class="col s12 m4 offset-m2">
-            <img class="recipe_image" src="{{ recipe.image }}"
-                onError="this.src='{{ url_for('static', filename='image/OnlineFoodOrdersfavicon-1920w.png') }}'"
-                alt="recipe_img"/>
+        <div class="col s12">
+            <p class="title_ing"><i class="fas fa-thermometer-full"></i> Ingredients:</p>
+            <ul>
+                {% for ingredient in recipe.ingredients %}
+                <li style="list-style-type: disc;">
+                    <p class="recipe-ingredients">{{ ingredient}}</p>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-
-        <div class="col s12 s12 m4">
-            <h2 class="created_author">Meal Category: {{recipe.category_name}}</h2>
-            <h2 class="recipe_head">{{ recipe.recipe_name}}</h2>
-            <h6 class="recipe-description">{{ recipe.recipe_description }}</h6>
-        </div> 
-        
-            <div class="col s12 m4 recipe_table">
-                <hr style="border: 1px solid #683b12;">
-                <table>
-                    <thead>
-                      <tr>
-                          <th>Prep Time</th>
-                          <th>Cooking Time</th>
-                          <th>Serves</th>
-                      </tr>
-                    </thead>
-            
-                    <tbody>
-                      <tr>
-                        <td> <i class="far fa-clock"></i> {{ recipe.prep_time }} minutes</td>
-                        <td>  <i class="fas fa-fire"></i> {{recipe.cooking_time}} minutes</td>
-                        <td> <i class="fas fa-concierge-bell"></i> {{recipe.serves}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
-    </div>   
-    <section class="container">
-        <div class="row">
-            <div class="col s12">
-                <ul id="list_of_ing">
-                    <h6 class="title_ing"> <i class="fas fa-thermometer-full prefix"></i> Ingredients:</h6>
-                    <li>
-                        <p class="recipe-ingredients" > {{ recipe.ingredients [0]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [1]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [2]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [3]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [4]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [5]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [6]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [7]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [8]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [9]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [10]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [11]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [12]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [13]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [14]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [15]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [16]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [17]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [18]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [19]}}</p>
-                    </li>
-                    <li>
-                        <p class="recipe-ingredients">{{ recipe.ingredients [20]}}</p>
-                    </li>
-                </ul>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p class="title_ing"><i class="fas fa-align-left"></i> Steps:</p>
+            <ol>
+                {% for instruction in recipe.instructions %}
+                <li>{{ instruction}}</li>
+                {% endfor %}
+            </ol>
         </div>
-   <div class="row">
-       <div class="col s12">
-        <h6 class="title_ing"><i class="fas fa-align-left"></i> Steps:</h6>
-        <ul>
-            <li>
-              {{ recipe.instructions [0]}}
-            </li>
-            <li>
-                {{ recipe.instructions [1]}}
-              </li>
-              <li>
-                {{ recipe.instructions [2]}}
-              </li>
-              <li>
-                {{ recipe.instructions [3]}}
-              </li>
-              <li>
-                {{ recipe.instructions [4]}}
-              </li>
-              <li>
-                {{ recipe.instructions [5]}}
-              </li>
-              <li>
-                {{ recipe.instructions [6]}}
-              </li>
-              <li>
-                {{ recipe.instructions [7]}}
-              </li>
-              <li>
-                {{ recipe.instructions [8]}}
-              </li>
-              <li>
-                {{ recipe.instructions [9]}}
-              </li>
-              <li>
-                {{ recipe.instructions [10]}}
-              </li>
-        </ul>
-
-       </div>
-   </div>
-    </section>
-
+    </div>
+</section>
 {% endblock %}

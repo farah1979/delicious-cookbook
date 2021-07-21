@@ -1,37 +1,32 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <section class="container">
-  <div class="row">
-    <div class="col s12 center-align">
-        <h3 class="category-title">Manage Categories </h3>
+    <div class="row">
+        <div class="col s12 center-align">
+            <h3 class="category-title">Manage Categories</h3>
+        </div>
     </div>
-</div>
-<!-----------------------------Add-new category-->
-<div class="row">
-  <div class="col s12 center-align">
-    <a href="{{ url_for('add_category')}}" class="btn-large btn add_category text-shadow">
-      Add Category <i class="fas fa-plus-square right"></i>
-    </a>
-  </div>
-</div>
-<!-------------------------------------Get all categories-->
-<div class="row category_section">
- {% for category in categories %}
-  <div class="col s12 m3 categ-div">
-    <div class="card brown lighten-5 text center-align">
-      <div class="card-content white-text ">
-        <span class="card-title">{{ category.category_name }}</span>
-      </div>
-      <div class="card-action">
-        <a href="{{ url_for('edit_category', category_id=category._id) }}" 
-        class="waves-effect waves-light btn green darken-4 ">Edit</a>
-        <a href="{{ url_for('delete_category', category_id=category._id) }}"
-         class="waves-effect waves-light btn red darken-4">Delete</a>
-      </div>
+    <!-----------------------------Add-new category-->
+    <div class="row">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_category')}}" class="btn-large btn add_category text-shadow"> Add Category <i class="fas fa-plus-square right"></i> </a>
+        </div>
     </div>
-  </div>
- {% endfor %}
-</div>
+    <!-------------------------------------Get all categories-->
+    <div class="row category_section">
+        {% for category in categories %}
+        <div class="col s12 m3 categ-div">
+            <div class="card brown lighten-5 text center-align">
+                <div class="card-content white-text">
+                    <span class="card-title">{{ category.category_name }}</span>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('edit_category', category_id=category._id) }}" class="waves-effect waves-light btn green darken-4">Edit</a>
+                    <a href="{{ url_for('delete_category', category_id=category._id) }}" class="waves-effect waves-light btn red darken-4">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

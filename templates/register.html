@@ -1,77 +1,67 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register')}}">
         <div class="card" id="reg-card">
             <div class="card-content">
                 <span class="card-title" id="reg-title">User Registration</span>
-
             </div>
             <!--------------------------First-Name-->
             <div class="row">
                 <div class="input-field col s12 m8 offset-m2">
                     <i class="fas fa-user-edit prefix"></i>
-                    <input id="first_name" name="first_name" type="text" class="validate" pattern="^[a-zA-Z0-9]{2,10}$"
-                        minlength="2" maxlength="10" required>
+                    <input id="first_name" name="first_name" type="text" class="validate" pattern="^[a-zA-Z0-9]{2,10}$" minlength="2" maxlength="10" required />
                     <label for="first_name" class="first_name">First Name</label>
                 </div>
             </div>
-              <!--------------------------Last-Name-->
+            <!--------------------------Last-Name-->
             <div class="row">
                 <div class="input-field col s12 m8 offset-m2">
                     <i class="fas fa-user-plus prefix"></i>
-                    <input id="last_name" name="last_name" type="text" class="validate" pattern="^[a-zA-Z0-9]{2,10}$"
-                        minlength="2" maxlength="10" required>
+                    <input id="last_name" name="last_name" type="text" class="validate" pattern="^[a-zA-Z0-9]{2,10}$" minlength="2" maxlength="10" required />
                     <label for="last_name">Last Name</label>
                 </div>
             </div>
-              <!--------------------------Username-->
-              <div class="row">
+            <!--------------------------Username-->
+            <div class="row">
                 <div class="input-field col s12 m8 offset-m2">
                     <i class="fas fa-user-plus prefix"></i>
-                    <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{2,10}$"
-                        minlength="2" maxlength="10" required>
+                    <input id="username" name="username" type="text" class="validate" pattern="^[a-zA-Z0-9]{2,10}$" minlength="2" maxlength="10" required />
                     <label for="username">Username</label>
                 </div>
             </div>
-              <!--------------------------Email-->
+            <!--------------------------Email-->
             <div class="row">
                 <div class="input-field col s12 m8 offset-m2">
                     <i class="fas fa-envelope-open-text prefix"></i>
-                    <input id="e_mail" name="e_mail" type="text" class="validate" minlength="2" maxlength="25"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                    <input id="e_mail" name="e_mail" type="text" class="validate" minlength="2" maxlength="25" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
                     <label for="e_mail">Email</label>
                 </div>
-                  <!-------------------------Password-->
+                <!-------------------------Password-->
                 <div class="row">
                     <div class="input-field col s12 m8 offset-m2">
                         <i class="fas fa-lock prefix" style="padding-left: 10px;"></i>
-                        <input id="password" name="password" type="password" class="validate"
-                            pattern="^[a-zA-Z0-9]{5,15}$" minlength="5" maxlength="15" required>
+                        <input id="password" name="password" type="password" class="validate" pattern="^[a-zA-Z0-9]{5,15}$" minlength="5" maxlength="15" required />
                         <label for="password">Password</label>
                     </div>
                 </div>
 
                 <div class="card-action">
-                     <!--------------------------Register-Button-->
-                    <div class="row ">
-                        <p class=" bg_text_color center-align"> New User?</p>
-                        <button type="submit" class="col s8 offset-s2 m4 offset-m4 cneter-align btn text-shadow">
-                            Register <i class="far fa-registered"></i>
-                        </button>
+                    <!--------------------------Register-Button-->
+                    <div class="row">
+                        <p class="bg_text_color center-align">New User?</p>
+                        <button type="submit" class="col s8 offset-s2 m4 offset-m4 cneter-align btn text-shadow">Register <i class="far fa-registered"></i></button>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
-     <!--------------------------Log In-Button-->
-    <div class="row alr-reg">
-        <p class=" bg_text_color center-align"> Already Registered?</p>
-        <button type="submit" class="col s8 offset-s2 m4 offset-m4 btn">
-          <a href="{{ url_for('login')}}" class="white-text center-align text-shadow">Log In <i class="fas fa-sign-in-alt"></i></a>
-        </button>
-    </div>
-    
 </div>
-
+<!--------------------------Log In-link-->
+<div class="row alr-reg">
+    <div class="col s12 m2 offset-m5">
+        <p class="bg_text_color center-align">Already Registered?</p>
+        <a href="{{ url_for('login')}}" class="btn"> Log In <i class="fas fa-sign-in-alt"></i> </a>
+    </div>
+</div>
 {% endblock %}

@@ -4,49 +4,64 @@ from flask import (
            request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+
+
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
 mongo = PyMongo(app)
 
 
 @app.route("/")
 @app.route("/home")
 def home():
-    get_recipes = list(mongo.db.recipes.find().sort("_id", -1).limit(4))
+    #Function render lastest four recipes from MongoDB 
+    # to home page
 
+    get_recipes = list(mongo.db.recipes.find().sort("_id", -1).limit(4))
     return render_template("home.html", get_recipes=get_recipes)
 
 
 @app.route('/recipes')
 def recipes():
-    recipes = list(mongo.db.recipes.find().sort("_id", -1))
+    # Function render all recipes 
 
+    recipes = list(mongo.db.recipes.find().sort("_id", -1))
     return render_template('recipes.html', recipes=recipes)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    #Function used for search method 
+
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-
     return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/recipe_detial/<recipe_id>")
 def recipe_detial(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # Function render detial about a recipe
 
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipe_detial.html",recipe=recipe)
 
 
 @app.route("/add_recipe", methods=["GET","POST"])
 def add_recipe():
+    # Function used to create new recipe by a user session
+    #if the user has an acount
+    #cheack if the admin logged in or not
+    if not session["user"]:
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         is_veg = True if request.form.get("is_veg") else False
         recipe = {
@@ -55,11 +70,11 @@ def add_recipe():
                   "recipe_description": request.form.get("recipe_description"),
                   "ingredients": request.form.getlist("ingredients"),
                   "instructions": request.form.getlist("instructions"),
-                  "Prep_time": request.form.get("Prep_time"),
+                  "prep_time": request.form.get("prep_time"),
                   "cooking_time": request.form.get("cooking_time"),
                   "serves": request.form.get("serves"),
-                  "created_at": request.form.get("created_at"),
-                  "updated_at": request.form.get("updated_at") ,
+                  "created_at": datetime.now(),
+                  "updated_at": datetime.now(),
                   "image": request.form.get("image"),
                   "is_veg": is_veg,
                   "author": session['user']
@@ -67,13 +82,18 @@ def add_recipe():
         mongo.db.recipes.insert_one(recipe)
         flash("Your recipe has been successfully added")
         return redirect(url_for("recipes"))
-    categories = mongo.db.categories.find().sort("category_name", 1)
 
+    categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET","POST"])
 def edit_recipe(recipe_id):
+    # cheack if the user has acount
+    # function let the logged user to edit his/her recipes only
+    if not session["user"]:
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         is_veg = True if request.form.get("is_veg") else False
         update = {
@@ -82,29 +102,39 @@ def edit_recipe(recipe_id):
                   "recipe_description": request.form.get("recipe_description"),
                   "ingredients": request.form.getlist("ingredients"),
                   "instructions": request.form.getlist("instructions"),
-                  "Prep_time": request.form.get("Prep_time"),
+                  "prep_time": request.form.get("prep_time"),
                   "cooking_time": request.form.get("cooking_time"),
                   "serves": request.form.get("serves"),
-                  "created_at": request.form.get("created_at"),
-                  "updated_at": request.form.get("updated_at") ,
+                  "created_at": datetime.now(),
+                  "updated_at": datetime.now(),
                   "image": request.form.get("image"),
                   "is_veg": is_veg,
                   "author": session['user']
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
         flash("Your recipe has been successfully updated")
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-
     return render_template("edit_recipe.html",recipe=recipe, categories=categories)
 
 
 @app.route("/get_categories")
 def get_categories():
+    # Check here is user is admin, else redirect to home page
+    if not (session["user"] and session["user"] == 'adminfa'):
+        return redirect(url_for("home"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("get_categories.html", categories=categories)
+
+
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    # Check here is user is admin, else redirect to home page
+    if not (session["user"] and session["user"] == 'adminfa'):
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         category = {
             "category_name": request.form.get("category_name")
@@ -118,6 +148,10 @@ def add_category():
 
 @app.route("/edit_category/<category_id>", methods=["GET","POST"])
 def edit_category(category_id):
+    # Check here is user is admin, else redirect to home page
+    if not (session["user"] and session["user"] == 'adminfa'):
+        return redirect(url_for("home"))
+
     if request.method == "POST":
         submit= {
             "category_name": request.form.get("category_name")
@@ -125,24 +159,27 @@ def edit_category(category_id):
         mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
         flash("Category has been updated Successfully")
         return redirect(url_for("get_categories"))
-    category= mongo.db.categories.find_one({"_id": ObjectId(category_id)})
 
+    category= mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
 
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
+    # Check here is user is admin, else redirect to home page
+    if not (session["user"] and session["user"] == 'adminfa'):
+        return redirect(url_for("home"))
+
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category successfully deleted")
-
     return redirect(url_for('get_categories'))
 
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    # function used to delete a recipe
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Your recipe has been successfully deleted")
-
     return redirect(url_for('recipes'))
 
 
@@ -196,6 +233,11 @@ def login():
 
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
+    # cheack if the user session or not redirect to home page
+    if not session["user"]:
+        return redirect(url_for("home"))
+    
+    username = session['user']
     first_name = mongo.db.users.find_one(
         {'username': session['user']})['first_name']
     my_recipes = list(
@@ -212,7 +254,6 @@ def logout():
     #delete user from session
     flash("You have been logged out")
     session.pop("user")
-
     return redirect(url_for("login"))
 
 
