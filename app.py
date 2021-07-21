@@ -19,6 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+#                                               Home-page-function
 @app.route("/")
 @app.route("/home")
 def home():
@@ -29,14 +30,17 @@ def home():
     return render_template("home.html", get_recipes=get_recipes)
 
 
+#                                              Recipe-page-function
 @app.route('/recipes')
 def recipes():
     # Function render all recipes 
+
 
     recipes = list(mongo.db.recipes.find().sort("_id", -1))
     return render_template('recipes.html', recipes=recipes)
 
 
+#                                                   Search-function
 @app.route("/search", methods=["GET", "POST"])
 def search():
     #Function used for search method 
@@ -45,7 +49,7 @@ def search():
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
 
-
+#                                              Recipe-detial-page-function
 @app.route("/recipe_detial/<recipe_id>")
 def recipe_detial(recipe_id):
     # Function render detial about a recipe
@@ -54,6 +58,7 @@ def recipe_detial(recipe_id):
     return render_template("recipe_detial.html",recipe=recipe)
 
 
+#                                              Addrecipe-page-function
 @app.route("/add_recipe", methods=["GET","POST"])
 def add_recipe():
     # Function used to create new recipe by a user session
@@ -79,14 +84,16 @@ def add_recipe():
                   "is_veg": is_veg,
                   "author": session['user']
         }
+        
         mongo.db.recipes.insert_one(recipe)
         flash("Your recipe has been successfully added")
         return redirect(url_for("recipes"))
-
+    
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
 
+#                                                       Editrecipe-page-function
 @app.route("/edit_recipe/<recipe_id>", methods=["GET","POST"])
 def edit_recipe(recipe_id):
     # cheack if the user has acount
@@ -119,6 +126,7 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html",recipe=recipe, categories=categories)
 
 
+#                                               Get Ctaegories-page-function
 @app.route("/get_categories")
 def get_categories():
     # Check here is user is admin, else redirect to home page
@@ -129,6 +137,7 @@ def get_categories():
     return render_template("get_categories.html", categories=categories)
 
 
+#                                                 Add category-page-function
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     # Check here is user is admin, else redirect to home page
@@ -146,6 +155,7 @@ def add_category():
     return render_template("add_category.html")
 
 
+#                                                  Edit category-page-function
 @app.route("/edit_category/<category_id>", methods=["GET","POST"])
 def edit_category(category_id):
     # Check here is user is admin, else redirect to home page
@@ -164,6 +174,7 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
+#                                               Delete category-page-function
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     # Check here is user is admin, else redirect to home page
@@ -175,6 +186,7 @@ def delete_category(category_id):
     return redirect(url_for('get_categories'))
 
 
+#                                                Delete recipe-page-function
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     # function used to delete a recipe
@@ -183,6 +195,7 @@ def delete_recipe(recipe_id):
     return redirect(url_for('recipes'))
 
 
+#                                               Register-page-function
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -207,6 +220,7 @@ def register():
     return render_template("register.html")
 
 
+#                                                    Login-page-function
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -231,6 +245,7 @@ def login():
     return render_template("login.html")
 
 
+#                                                  Profile-page-function
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
     # cheack if the user session or not redirect to home page
@@ -249,6 +264,7 @@ def profile():
     return redirect(url_for('login'))
 
 
+#                                                     Logout-page-function
 @app.route("/logout")
 def logout():
     #delete user from session
