@@ -12,7 +12,8 @@
 <hr>
 
 # General Information
-### A website **Delicious Cook Book ** has been created with the latest technologies and programming languages ​​in order to provide everyone who loves to eat and cook and learn about the latest and best international meals. It is unparalleled fun. In addition, it allows the user to share his favorite recipes with us and publish it in front of the public, and it is also easy to use and publish. The user is provided with clear facilities of how to publish his recipe through this website that can be displayed on different device sizes of computers...laptops...and different mobile devices.
+### A website **Delicious Cook Book **: 
+ Has been created with the latest technologies and programming languages ​​in order to provide everyone who loves to eat and cook and learn about the latest and best international meals. It is unparalleled fun. In addition, it allows the user to share his favorite recipes with us and publish it in front of the public, and it is also easy to use and publish. The user is provided with clear facilities of how to publish his recipe through this website that can be displayed on different device sizes of computers...laptops...and different mobile devices.
 <hr>
 
 # Website business goals:
@@ -22,7 +23,7 @@
   - The user of the site makes it easy for him to publish his favorite recipe and spread it globally.
   - The user is patient famous in the field of cooking through our website.
 
-# Scop 
+# Scoop 
 This is the **Third project** as it relies on the latest technologies and programming languages, making the site more interactive and easier to deal with users, and this is the main goal of it... The project consists of **HTML 5**, **Stylesheet CSS**, **Jquery**, **Python language** and the latest libraries, including That's **Flask**, linked to a solid database, which is **MongoDB** and linked to better software tools. It allowed and facilitated for me to run reliable and repeatable tests for every deployment. Integration with **Herkou CI/CD** makes me fast, flexible and efficient.
 <hr>
 
@@ -243,7 +244,7 @@ It is a page in the form of a form. All fields visible to the user must be fille
 
        - from datetime import datetime
          -  "created_at": datetime.now()
-         -   "updated_at": datetime.now()
+         -  "updated_at": datetime.now()
 
    11. And finally, add an **image url** to this recipe if founded.
    12. **Is vegan** is a choice (swich) in the end of the form for user whether the person is a vegetarian or not.(located in recipes collection)
@@ -310,20 +311,103 @@ The W3C Markup Validator, W3C CSS Validator and Beautify Tools JavaScript Valida
     - Expand and reduce the screen size to verify that the partition looks good on different displays.
     - Click the up arrow button to confirm that it reveals a correct recipe description. Click the down arrow button to confirm that it hides the recipe description.
     - Click the buttons to check that they link to the correct recipe pages.
+    - Hover over all button you will see the color will change.
 
-## Recipe page
+### Recipe page
   - Confirm that the page title display correctly
   - Search
     - write a recipe name or any word in the recipe description you will see that all recipe/recipes which is/are related to a word  will apeare on the screen.
     -  write the text that is not in recipes and check if search will return an appoligize message.
     -  Click on the cancel button to make sure that all the recipes will appeare again.
+    - Hover over all button you will see the color will change.
 
   - Recipes
-  - Click the arrow-up button to confirm that it reveals a correct recipe description. 
-  - Click the arrow-down button to confirm that it hides recipe description.
-  - Click the buttons to verify that they link with the correct recipe pages.
-  - Make sure that the vegan Icon will apeare in all vegans recipes and in the correct place.
+    -  Click the arrow-up button to confirm that it reveals a correct recipe description. 
+    -  Click the arrow-down button to confirm that it hides recipe description.
+    -  Click the buttons to verify that they link with the correct recipe pages.
+    -  Make sure that the vegan Icon will apeare in all vegans recipes and in the correct place.
 
-  
+  - AUTHENTIFICATION
+    - Confirm that all content is visible
+    - Expand and reduce a screen size to verify that the page and all the components looks good on a different screen sizes.
+   - Confirm that un-registered/unauthorised user can't see the 'Profile', 'Logout' and 'Add recipe' items on the navbar and don't have an access to this pages.
+   - Confirm that registered/authorised user can't see the 'Register' and 'Login' items on the navbar.
+   - Confirm that only the Admin can see Manage category/add/edit/delete caterorg and have access to all the pages.
+
+### Register
+ - Check that it is unable to register without filling the all form fields.
+ - Check that it is unable to register twice if the user is already exists then will appeare a corresponding flash message.
+  - Confirm that after registration user get a flash message and redirected to the profile user page.
+  - Check that both butten works correctly to register and log in existing user.
+  - Check when the field be active the color will be changed.
+
+### Log In
+ - Check that it is unable to log in without filling the login form fields.
+ - checked that the user is already exists then will appeare a corresponding flash message and redirect to the user profile page.
+  - Confirm that if the user not exists cannot log in and a corrosponding message will be appeare to let a user register in the page.
+  - Confirm that after login user get a flash message and redirected to the profile user page.
+  - Check that both butten works correctly to log in and register new user.
+  - Check when the field be active the color will be changed.
+
+### Log Out
+  - Confirm that after clicking on 'logout' in the navigation bar user will be popped out of the session, get a corresponding flash message and redirected to the 'log In' page.
+
+### Profile
+  - Check that all content is visible
+  - Expand and reduce a screen size to verify that the page and all the Materialize components looks good on a different screen sizes.
+  - Check that if user haven't added a recipes yet, the message will appeare in the end of the page (ٍSorry! No recipe has been added yet.)
+  - Verify that username, retrive from the database (users collection) display correctly.
+  - Verify that the First Name has been retrive from the MongoDB(users collection) and display correctly on the page.
+  - Check that 'Add recipe' button redirect to the add recipe page and it's work fine.
+  - Confirm that after the user added a recipe to own page the appoligize message will disappeare.
+  - Ckeck that the recipe is added correct to the profile page and look lika a card with the most importent recipe information (recipe name, description, prep time, cooking time, serves and so on)
+  - Confirm that the activator works good and the card reveal can be open and close.
+  - Check that the button (recipe page) works correct and open correct recipe page.
+
+### Add Recipe
+  - Confirm that all content is visible.
+  - Expand and reduce a screen size to verify that the page and all the components looks good on a different screen widths.
+  - Confirm that it is unable to add any new recipe without fill all form fields.
+ - Confirm that when click on the select field will appeare all the categories which retrive from the MongoDB and it's orderd alphabetical order.
+  - Confirm that all active fields will change the color
+  - Confirm that Ingredients and Instructions fields will be thier data appeare like an unorderd and orderd list respectivly.
+  - Confirm that Prep time,Cooking time and serves work fine.
+  - Confirm that created At field active will appeare automatically Materialize Time Picker.
+  - Confirm in the user add an Image Url will appeare in place either if not will appeare an error image.
+  - Confirm that Switches are appeare in the correct place and the user can active/disactive the switches.
+  - Confirm that if the switches is True it will appeare on the left side of the recipe carn an Icons and it's work with tooltips which will shown a message.
+
+### Edit Recipe
+  - Confirm that all content is visible.
+  - Expand and reduce a screen size to verify that the page and all the components looks good on a different screen widths.
+  - Confirm that it is unable to submit the form without filling the all form fields.
+  - Verify all validation is in place as specified for the 'New Recipe' page
+  - Verify all fields are automatically filled in from the database, with corresponding recipe information.
+  - Verify any changes are submitted to the database when the 'Submit Changes' button is clicked.
+  - Confirm that a updated message will appeare in the top of the same page.
+  - Check that the page will redirect to the edit recipe page after submited.
+  - Check that the Cancel button is work good and redirct to the main recipes page.
+
+### Recipe Detial Page
+  - Confirm that the Author user name will be appeare correct in the top of the page.
+  - Confirm that the category name will shown on the page correctly.
+  - Confirm that the recipe name display correctly.
+  - Confirm that the recipe description display correctly.
+  - Check that the edit button work fine and when click on it will redirect to the edit recipe page and checked when hover over the button the color will change.
+  - Check that the delete button work fine and when click on it will display an Modal message to confirm if the user sure want to delete the recipe or not and checked when hover over the button the color will change.
+  - Confirm that the recipe ingredients appeare in place and as unorder list.
+  - Confirm that the recipe instructions appeare in place and as orderd list.
+
+### Delete Recipe
+  - The recipe can be deleted from website and database directly from the recipe detail page by clicking 'Delete' button.
+  - Verify that by clicking the 'delete' button user will get 'pop-up window' to ensure that the user wants to delete a recipe.
+  - Make sure that after confirmation recipe will be deleted from the website and database.
+
+### Manage Categories Page
+### Add Category Page
+### Edit Category Page
+### Delete Category Page
+
+
 
 
