@@ -102,13 +102,14 @@ def edit_recipe(recipe_id):
         return redirect(url_for("home"))
 
     if request.method == "POST":
+        
         is_veg = True if request.form.get("is_veg") else False
         update = {
                   "category_name": request.form.get("category_name"),
                   "recipe_name": request.form.get("recipe_name"),
                   "recipe_description": request.form.get("recipe_description"),
-                  "ingredients": request.form.getlist("ingredients"),
-                  "instructions": request.form.getlist("instructions"),
+                  "ingredients": (request.form.getlist("ingredients")[0].replace('\n', '')[:-2].split('\r')),
+                  "instructions": (request.form.getlist("instructions")[0].replace('\n', '')[:-2].split('\r')),
                   "prep_time": request.form.get("prep_time"),
                   "cooking_time": request.form.get("cooking_time"),
                   "serves": request.form.get("serves"),
@@ -122,6 +123,7 @@ def edit_recipe(recipe_id):
         flash("Your recipe has been successfully updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe['ingredients'] = '\n'.join(recipe['ingredients'])
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_recipe.html",recipe=recipe, categories=categories)
 

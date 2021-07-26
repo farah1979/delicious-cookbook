@@ -125,8 +125,6 @@ Examples of sites:
       - $(".sidenav").sidenav()
     - Manibulate the slider which used for hero image in the front of the home page.
       -  $(".slider").slider()
-    - Manipulate the drowpdown trigger if need.
-      -  $(".dropdown-trigger").dropdown()
     - To show the copy right date.
       -  $(".copyright").text(new Date().getFullYear())
     - Implement time picker.
@@ -182,7 +180,150 @@ Examples of sites:
     - Home, Recipes(Each recipe has its own page), Log In, Register
   - And 3 pages, which available only for registered users Profile, Add recipe and Edit recipe.
   - And 3 pages available only for admin manage category, add category,edit category.
-### Home page :
+### Base page:
+The base page includes two main HTML things, the**header** and the **footer**:
+1. Header: where it consists of a navigation bar and with the help of the materials I have used Mobile Collapse Button  and it was run (installation)with the help of JQuery. The navbar consist of Logo which put on the right side and four main pages which can seen on the left side which is Home, Recipes, Log In and Register this menu will turn into a clearly defined hamburger menu in the small devices and this navbar will appear in all hotmail pages on the screen with the help of Jinja which is a fast, expressive, extensible templating engine.
+by exensible cood {%extends "base.html"%} and {%block content%}{%endblock%}
+The benefit of the navigation bar is to put links to all the pages that have been created in the site, allowing the user to move between the pages smoothly.
 
+2. Footer: The Footer includes the name of the cookbook on which the site was built, and you can click on it to go to the top of the page easily. I added active links to social networking pages which currently, social media links lead to the homepage of the particular social media sites. It also has a dynamic copyright caption. Which updates the year, based on the current date and with the help of this cood:
+    - $(".copyright").text(new Date().getFullYear());
+
+
+### Home page (def home() function) In python file:
+The Home page which consists of several parts and these are Slider-images, Feature recipes, Main course-rated-recipes, Dessert-rated-recipes, Lastest-recipes:
+  - Slider-images:The sliders were used in the interface of the page as large images expressing the content of the site, and in each picture includes a link to a specific page to encourage the visitor to become part of our team and also encourage him to add his favorite recipes and the slider was created by Materialize. This section is responsive depending on a screen size by useing Materialize grid system.
+
+  - Feature recipes: Our featured recipes are hand selected daily to give the visitor ideas to cook or bake in the kitchen.Each recipe has a link to the recipes page for many other options and have been used Materialize grid system.
+
+  -  Main course-rated-recipes and Dessert-rated-recipes: In this field, immutable static images have been placed to display the most important and most famous international recipes.and this section is concisely and responsive depending on a screen size by useing Materialize grid system.
+
+  - Lastest-recipes: In this part, it has been practically linked to the get_recipe Function py Python and Flask, as it displays the last 4 recent recipes that have been added to the site and changes whenever a new recipe is added. All these data stored in the MonogDB.and this section is made with Materialize grid system to be concisely and responsive depending on a screen size.
+
+    -  [view the home page](https://delicious-cookbook.herokuapp.com/)
+
+### Recipes page ((def recipes() function)) In python file:
+Here all the recipes added to the site are displayed by all members of the site who have a private account for each person. The recipe is displayed in the form of a card-reveal by Materialize. In this card, most of the recipe details have been placed with the recipe-image from its recipe name..to which category it belongs..the duration of preparing the recipe..duration Cook the recipe...for you, the quantity of the recipe is sufficient...Describe the recipe by added the class activator to an element inside the card to allow it to open the card reveal. Each recipe includes the name of its owner, i.e. its author. There is a link in the buttom right side of the card which can click on it and open a new recipe side which it includes all the information about this recipe, including its ingredients, as well as the way to make the recipe with its steps.
+and this section is made with Materialize grid system to be concisely and responsive depending on a screen size.
+
+  - [view the recipe page](https://delicious-cookbook.herokuapp.com/recipes)
+
+   - [view the recipe-detail page](https://delicious-cookbook.herokuapp.com/recipe_detial/60ecb0e0713e01e2b31a8d8e)
+
+#### Search (def search()) in python file:
+ Through this searcher, you can search for the required recipe either by the name of the recipe or one of the words used in the description of the recipe, and then the recipe will be displayed if founded, by retrieving all the information from the database, and if the recipe is not found, a message will appear to the user Apologies for not being able to find the recipe.
+
+### Register page (def register() function in pyhton file):
+The registration page is a page consisting of a form to fill in the data required by the registrant so that he/she can become a member of our site, and this data is filled out with specific conditions and fields,all required.
+After registration, the registrant will go to his or her personal page(Profile page). Through this page, the registrant will be able to implement the CRUD operations **Adding a recipe .. Editing the recipe ... reading the recipe and also Deleting it** All recipes added by this user will be displayed in His profile page in addition to displaying it to the public on the public recipes page, in addition to any recipe that will be added to the site will be stored in the database**MongoDB**.and this page is made with Materialize grid system to be concisely and responsive depending on a screen size.
+
+[view registration page](http://delicious-cookbook.herokuapp.com/register)
+
+### Log In page(def login() function in python file):
+On this page, where it includes a form filled out correctly by users who have registered on the site by authenticating the entry of their personal page and the implementation of the following actions where they can see the list of recipes added to the site by them. Add recipes to the site / edit and delete recipes added by themselves.Any data that is changed by the user himself is stored directly in the database and this page is made with Materialize grid system to be concisely and responsive depending on a screen size.
+
+[view Login page](http://delicious-cookbook.herokuapp.com/login)
+
+### Profile page(def profile() function in python file):
+This page:
+  - **for a new user** will be shown to him at the top of the page. Welcome the user by calling the username from the database and displaying it on his profile page with appreciation.
+At the bottom of the welcome there is a button, which is a button to add new favorite recipe by the user when click on the button will navigate the user (redirect to add_recipe page)
+#### Add recipe page (def add_recipe()function in python file):
+It is a page in the form of a form. All fields visible to the user must be filled in, as they are all required. This form consists of .
+   1. **Select the category** by Materialize Select which allows user input through specified options.
+   2. **the name of the recipe** (recipe_name which created in the recipes database collection).
+   3. **the description of the recipe** (recipe_description in the recipes collection DB)
+   4. **the time to prepare** (prep_time in MongoDB recipes collection)
+   5. **the time to cook** (cooking_time in MongoDB recipes collection)
+   6. **Ingredients** required in the recipe which stored in(ingredients MongoDB recipes collection)
+   7. **Instructions** recipe preparation steps(instruction in MongoDB recipes collection)
+   8. **Serves** (serves in recipes collection DB) which descripe how many person is enough in this recipe 
+   9. **Created at** (created_at in recipes collecion) is timestamp which shown to the user when ites created based on the current time with help of the bellow module.
+   10. **Updated at** (updated_at in recipes collection) is a timestamp Which updates the time, based on the current updated time and with the help of this import datetime in the python file.
+
+       - from datetime import datetime
+         -  "created_at": datetime.now()
+         -   "updated_at": datetime.now()
+
+   11. And finally, add an **image url** to this recipe if founded.
+   12. **Is vegan** is a choice (swich) in the end of the form for user whether the person is a vegetarian or not.(located in recipes collection)
+
+Finally, a button to add the recipe on the user's page and also on the recipes page to show it to the public.
+
+  - **For a frequent user** : This page renders all the recipes made by particular user from database and display them on the Profile page.
+  
+  - **For all users**: appeare the regard message and the same button to add the new favorite recipes.
+  - **In the profile page** after the user has been added a recipe this recipe will apeare as a Materialize card on the profile page and this section is made with Materialize grid system to be concisely and responsive depending on a screen size. Every card display recipe image, the recipe name, recipe description, preperation time, cooking time and serves. These data retrieved from MongoDB. There are 3 buttons on the bottom of every card: View recipe, edit and delete. 
+   1. View recipe button link to the particular **recipe_detail** page:
+   which هt is the page that shows all the recipe information after retriving all the data from the database and showing it on the screen.This section is made with Materialize grid system to be concisely and responsive depending on a screen size.
+   2.	Edit recipe button redirect to the **edit-recipe** page (def edit_recipe() in python file):
+   This page will show the same form that was filled out during the creation of a new recipe in the **ADD NEW RECIPE** page with showing all its old data to be modified and stored in the database again after modification to the data by the user himself. At the bottom of this page there are two buttons,
+     - Edit Recipe: click on if the user want to Send edit data after that will redirect to (edit_recipe) page and appeare a message the shown the recipe has been updated succssfully.
+     - Cancel: click on in the event of retracting his/her opinion on changing the old data.Then redirect to the (resipes page).
+   3.	Delete button allows to delete the recipe from database by useing Materialize modal which Used a modal for dialog boxes, confirmation messages to ask the user if he/she sure want to delete a recipe.
+
+## There are the last 3 pages for admin which are:
+  - **Manage Category**(def get_categories() function in python file):
+    On this page, all categories are retriving from the database and shown on the screen in the form of a Materialize card. In this card, the name of the category**category_name which stored in the categories collection in the DB** will appear, and at the bottom of the card there are two buttons, an **edit** button which redirect to the (edit_category page) and a button to **delete** the category which implement(def delete_category() function in the python file). 
+  - **Add category**(def add_category() function in python file): 
+    On this page will apeare a form with on option which is add a new category if the admin decided and in the end of the form there is on button (Add new category) then save the new category in the MongoDB.
+  - **Edit Category**(def edit_category() function in python file):
+    This page apeare to the admin afeter he clicked on the edit button in the manage categories and the allow him to update on the category name if he want it and in the end of the page there are two button on for submit the edit and another for cancel if he want to cancel his opinian. then redirect to the (manage categories page).
+
+<hr>
+
+# Testing
+The W3C Markup Validator, W3C CSS Validator and Beautify Tools JavaScript Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+
+[W3C Markup Validator](https://validator.w3.org/)
+
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+[Beautify Tools JavaScript Validator](https://beautifytools.com/javascript-validator.php)
+
+[PEP8](http://pep8online.com/)
+
+## Manual testing for each page and make sure that evrything is working corect
+
+### Navbar:
+  - Click on the logo to make sure that it links to the homepage.
+  - Click all the navbar items to verify that they work and lead the user to correct pages.
+  - Change the screen size from the desktop to the tablet or to the mobile screen, then you will notice that the built-in navigation menu will turn into a mobile hamburger menu and then make sure that all the menu items are working properly and in the correct place and lead to correct pages.
+  - Confirm that navbar code is the same on all HTML pages.
+
+### Footer
+  - In the footer you will find the **Delicious Cookbook**, click on it, and it will take you to the top of the same page easily and its in the correct place.
+  - 3 social links have been displayed in the end of the footer ,Click on any one of them. You will find an new website in new tap open and lead it to correct social site.
+  - Change the window width to verify that the footer is responsive and looks good for different screen sizes.
+  - Confirm that footer code is the same on all HTML pages.
+
+### Home page
+  - Open the page in different browsers and scroll down to make sure everything is displayed correctly.
+   - Images_Slider works correctly on devices of different sizes, in addition to clicking on each button you will see that it will take you to the correct relevant page.
+  - Feature and reated Section
+    - Expand and reduce the screen size to verify that this section looks good on different displays.
+    - Ensure that all images and text are displayed correctly.
+    - Check all the buttons and you will notice that they are working correctly and that they take you to the correct page.
+
+  - Recipes section
+    - Make sure that each card gets the correct content from the database.
+    - Expand and reduce the screen size to verify that the partition looks good on different displays.
+    - Click the up arrow button to confirm that it reveals a correct recipe description. Click the down arrow button to confirm that it hides the recipe description.
+    - Click the buttons to check that they link to the correct recipe pages.
+
+## Recipe page
+  - Confirm that the page title display correctly
+  - Search
+    - write a recipe name or any word in the recipe description you will see that all recipe/recipes which is/are related to a word  will apeare on the screen.
+    -  write the text that is not in recipes and check if search will return an appoligize message.
+    -  Click on the cancel button to make sure that all the recipes will appeare again.
+
+  - Recipes
+  - Click the arrow-up button to confirm that it reveals a correct recipe description. 
+  - Click the arrow-down button to confirm that it hides recipe description.
+  - Click the buttons to verify that they link with the correct recipe pages.
+  - Make sure that the vegan Icon will apeare in all vegans recipes and in the correct place.
+
+  
 
 
