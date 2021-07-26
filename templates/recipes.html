@@ -1,11 +1,15 @@
 {% extends "base.html" %} {% block content %}
 
+ <!------------------------------All recipe header-field-->
+
 <div class="row">
     <div class="col s12 center-align">
         <h3 class="header-title">All Recipes</h3>
     </div>
 </div>
 <section class="container">
+
+ <!------------------------------Search-field-->
     <div class="row">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
             <div class="row valign-wrapper center-align">
@@ -16,7 +20,8 @@
                 </div>
                 <div class="col s12 m4 search_field">
                     <a href="{{ url_for('recipes') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow search"><i class="fas fa-search left"></i>Search</button>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow search">
+                        <i class="fas fa-search left"></i>Search</button>
                 </div>
             </div>
         </form>
@@ -24,13 +29,17 @@
 </section>
 
 <section class="container" style="width: 90%;">
+
+ <!------------------------------recipe-field-->
     <div class="row">
         {% if recipes|length > 0 %} {% for recipe in recipes %}
 
         <div class="col s12 m4">
             <div class="card recipes-card">
                 <div class="card-image waves-block waves-light">
-                    <img class="activator" src="{{ recipe.image }}" onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" alt="recipe_image" />
+                    <img class="activator" src="{{ recipe.image }}" 
+                    onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" 
+                    alt="recipe_image" />
                 </div>
                 <div class="card-content">
                     <span class="card-title activator" id="title_recipe">

@@ -19,8 +19,7 @@
             <img src="{{url_for('static',filename='images/add.jpg')}}" alt="add-image" />
             <div class="caption left-align">
                 <h5>
-                    If you are registered with us, <br />
-                    you can add your favorite recipe <i class="fas fa-utensils" aria-hidden="true"></i>
+                    In the team..add your recipe here <i class="fas fa-utensils" aria-hidden="true"></i>
                 </h5>
                 <p>Click on the button</p>
 
@@ -43,48 +42,26 @@
     </ul>
 </div>
 <!-------------------------------------------Feature recipes-->
-<section>
+
     <div class="row">
         <div class="col s12 center-align">
             <h3 class="header-title">Daily Dish Recipes</h3>
-            <p class="header-par">Our featured recipes are hand selected daily to give you ideas to cook or bake in the kitchen.</p>
+            <p class="header-par">Our featured recipes are hand selected daily to
+                 give you ideas to cook or bake in the kitchen.</p>
             <h6 class="feature">Featured Recipes:</h6>
         </div>
     </div>
-
+<section class="container">
     <div class="row">
-        <div class="col m3 s12">
+        <div class="col m4 s12">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ url_for('static', filename='images/breakfast.jpg')}}" alt="T-recipe" />
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator">
-                        Breakfast
-                        <i class="fas fa-ellipsis-v right"></i>
-                    </span>
-                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title brown-text text-darken-4">
-                        Overnight Egg Bake
-                        <i class="far fa-times-circle right"></i>
-                    </span>
-                    <p class="par-card">
-                        A great combination of flavors with eggs, sausage, cheese, and peppers. This make-ahead egg bake is a great addition to any breakfast or brunch table. Give it a southwest flair by topping it with salsa. Visit our
-                        site for more Egg Breakfast recipes.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col m3 s12">
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{url_for('static', filename='images/oriental_stir_fry.jpg')}}" alt="recipe-orienatl" />
+                    <img class="activator" src="{{url_for('static', filename='images/oriental_stir_fry.jpg')}}" 
+                    alt="recipe-orienatl" />
                 </div>
                 <div class="card-content">
                     <span class="card-title activator">Oriental Stir Fry <i class="fas fa-ellipsis-v right"></i></span>
-                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
+                    <p><a href="{{url_for('recipes')}}" class="view-recipe btn ">View More Recipes</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">
@@ -92,22 +69,25 @@
                         <i class="far fa-times-circle right"></i>
                     </span>
                     <p class="par-card">
-                        Create your own Asian meal in your house with this delicious stir fry. Whether you like it over rice or noodles, this dish will please everyone. Serve it with some potstickers to complete the meal.
+                        Create your own Asian meal in your house with this delicious stir fry. 
+                        Whether you like it over rice or noodles, this dish will please everyone.
+                        Serve it with some potstickers to complete the meal.
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col m3 s12">
+        <div class="col m4 s12">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{url_for('static', filename='images/vegetable_soup_sc.jpg')}}" alt="veg-recipe" />
+                    <img class="activator" src="{{url_for('static', filename='images/vegetable_soup_sc.jpg')}}" 
+                    alt="veg-recipe" />
                 </div>
                 <div class="card-content">
                     <span class="card-title activator">
                         Slow Cooker
                         <i class="fas fa-ellipsis-v right"></i>
                     </span>
-                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
+                    <p><a href="{{url_for('recipes')}}" class="view-recipe btn">View More Recipes</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">
@@ -118,28 +98,32 @@
                 </div>
             </div>
         </div>
-        <div class="col m3 s12">
+        <div class="col m4 s12">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{url_for('static', filename='images/berry_bonanza_custard.jpg')}}" alt="berry-recipe" />
+                    <img class="activator" src="{{url_for('static', filename='images/berry_bonanza_custard.jpg')}}"
+                     alt="berry-recipe" />
                 </div>
                 <div class="card-content">
                     <span class="card-title activator">
                         Dessert
                         <i class="fas fa-ellipsis-v right"></i>
                     </span>
-                    <p><a href="{{url_for('recipes')}}" class="view-recipe">View More Recipes</a></p>
+                    <p><a href="{{url_for('recipes')}}" class="view-recipe btn">View More Recipes</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">
                         Berry Bonanza In Custard Sauce
                         <i class="far fa-times-circle right"></i>
                     </span>
-                    <p class="par-card">A dessert for that wonderful time of summer when gardens and farmers' markets are brimming with sun-ripened berries. Use any mix of fully ripe berries. Can be doubled or tripled.</p>
+                    <p class="par-card">A dessert for that wonderful time of summer when gardens and
+                         farmers' markets are brimming with sun-ripened berries. Use any mix of fully ripe berries. 
+                         Can be doubled or tripled.</p>
                 </div>
             </div>
         </div>
     </div>
+</section>
     <!----------------------------------------------Viewall recipes Button-->
     <div class="col s12 button-recipes" style="text-align: center;">
         <a href="{{('recipes')}}" class="waves-effect waves-light btn center-align">View All Recipes</a>
@@ -152,11 +136,13 @@
             <div class="col s12 m4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{url_for('static', filename='images/Aubergine-Parmigiana-sandwich-768.jpg')}}" alt="abu-recipe" />
+                        <img src="{{url_for('static', filename='images/Aubergine-Parmigiana-sandwich-768.jpg')}}" 
+                        alt="abu-recipe" />
                     </div>
                     <div class="card-content">
                         <span class="card-title title">Aubergine-parmigiana</span>
-                        <p>London restaurateur Nicholas Balfe created this aubergine parmigiana recipe. It can be served as a main meal or in a street food-style</p>
+                        <p>London restaurateur Nicholas Balfe created this aubergine parmigiana recipe. 
+                            It can be served as a main meal or in a street food-style</p>
                         <input type="radio" name="stars-1" id="star-1" />
                         <label for="star-1">
                             <svg width="25" height="20" viewBox="0 0 51 48">
@@ -199,7 +185,8 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title title">T-bone steak with coffee </span>
-                        <p>Grill or barbecue these juicy T-bone steaks with coffee rub for the ultimate flavour kick. Serve with rosemary potatoes for an easy summer lunch.</p>
+                        <p>Grill or barbecue these juicy T-bone steaks with coffee rub for the ultimate flavour kick. 
+                            Serve with rosemary potatoes for an easy summer lunch.</p>
                         <input type="radio" name="stars-6" id="star-6" />
                         <label for="star-6">
                             <svg width="25" height="20" viewBox="0 0 51 48">
@@ -241,7 +228,8 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title title">Roast chicken with flatbreads</span>
-                        <p>This lip-smacking harissa roast chicken traybake recipe uses Moroccan-inspired flavours in the marinade and is served with homemade flatbreads.</p>
+                        <p>This lip-smacking harissa roast chicken traybake recipe uses Moroccan-inspired flavours 
+                            in the marinade and is served with homemade flatbreads.</p>
                         <input type="radio" name="stars-11" id="star-11" />
                         <label for="star-11">
                             <svg width="25" height="20" viewBox="0 0 51 48">
@@ -288,7 +276,8 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title title">Banoffee cheesecake</span>
-                        <p>Bananas, caramel, biscuit and cream – with such a heavenly combination of flavours. It makes an impressive party piece but is still quick.</p>
+                        <p>Bananas, caramel, biscuit and cream – with such a heavenly combination of flavours. 
+                            It makes an impressive party piece but is still quick.</p>
                         <input type="radio" name="stars-16" id="star-16" />
                         <label for="star-16">
                             <svg width="25" height="20" viewBox="0 0 51 48">
@@ -330,7 +319,9 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title title">Apple and ginger </span>
-                        <p>If you reach for yogurt after a meal, try adding grated apple and crushed biscuits for something a bit special. This healthy recipe is ideal as a snack or a light dessert. It makes an impressive party.</p>
+                        <p>If you reach for yogurt after a meal, try adding grated apple and crushed biscuits for 
+                            something a bit special. This healthy recipe is ideal as a snack or a light dessert.
+                             It makes an impressive party.</p>
                         <input type="radio" name="stars-21" id="star-21" />
                         <label for="star-21">
                             <svg width="25" height="20" viewBox="0 0 51 48">
@@ -372,7 +363,9 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title title">Frozen yogurt</span>
-                        <p>This tropical frozen yogurt recipe comes served with crispy shards of buttery biscuits – a perfect summertime dessert.This frozen recipe is ideal as dessert. It makes an impressive party.</p>
+                        <p>This tropical frozen yogurt recipe comes served with crispy shards of buttery biscuits – 
+                            a perfect summertime dessert.This frozen recipe is ideal as dessert. It makes an 
+                            impressive party.</p>
                         <input type="radio" name="stars-26" id="star-26" />
                         <label for="star-26">
                             <svg width="25" height="20" viewBox="0 0 51 48">
@@ -409,7 +402,7 @@
             </div>
         </div>
     </div>
-</section>
+
 <!---------------------------------------------------Lastest-recipes-->
 {% if recently_added_recipes |count > 0 %}
 <h4 class="latest-recipes">Latest recipes</h4>
@@ -419,7 +412,9 @@
     <div class="col s12 m3">
         <div class="card">
             <div class="card-image waves-block waves-light">
-                <img class="activator" src="{{ recipe.image }}" onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" alt="recipe_image" />
+                <img class="activator" src="{{ recipe.image }}"
+                 onError="this.src='{{ url_for('static', filename='images/OnlineFoodOrdersfavicon-1920w.png')}}'" 
+                 alt="recipe_image" />
             </div>
             <div class="card-content">
                 <span class="card-title activator" id="title_recipe">
@@ -440,10 +435,12 @@
                 </div>
             </div>
             <div class="card-reveal">
-                <span class="card-title brown-text text-darken-4"> {{recipe.recipe_name}} <i class="far fa-times-circle right"></i> </span>
+                <span class="card-title brown-text text-darken-4"> {{recipe.recipe_name}}
+                     <i class="far fa-times-circle right"></i> </span>
                 <p>{{ recipe.recipe_description}}</p>
                 <hr />
-                <p class="brown-text text-darken-4" style="font-size: 0.9rem;"><em>Author: {{recipe.author}}</em></p>
+                <p class="brown-text text-darken-4" style="font-size: 0.9rem;">
+                    <em>Author: {{recipe.author}}</em></p>
             </div>
         </div>
     </div>

@@ -27,7 +27,7 @@ def home():
     #Function render lastest four recipes from MongoDB
     # to home page
 
-    recently_added_recipes = list(mongo.db.recipes.find().sort("created_at", -1).limit(4))
+    recently_added_recipes = list(mongo.db.recipes.find().sort("_id", -1).limit(4))
     return render_template("home.html", recently_added_recipes=recently_added_recipes)
 
 
@@ -117,6 +117,7 @@ def edit_recipe(recipe_id):
                   "prep_time": request.form.get("prep_time"),
                   "cooking_time": request.form.get("cooking_time"),
                   "serves": request.form.get("serves"),
+                  "created_at": datetime.now(),
                   "updated_at": datetime.now(),
                   "image": request.form.get("image"),
                   "is_veg": is_veg,
