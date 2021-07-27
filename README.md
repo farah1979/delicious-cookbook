@@ -1,5 +1,5 @@
 <div align="center">
-<img src="static/images/logo.jpg" style="height: 20px;">
+<img src="static/images/logo.jpg" style="height: 10px;">
 </div>
 <div align="center">
 <span  style="font-size:40px;color:#fff"> Delicious Cook Book
@@ -7,7 +7,7 @@
 </div>
 <br>
 <br>
-<h1 align="center"><a href="https://delicious-cookbook.herokuapp.com/">Look At The Best International Recipes Here</a></h1>
+<h1 align="center"><a href="https://delicious-cookbook.herokuapp.com/" target="_blank">Look At The Best International Recipes Here</a></h1>
 <img src="static/images/responsive_image.gif">
 <hr>
 
@@ -99,6 +99,7 @@ Pictures of food recipes have been acquired from various sites.
 The idea for the logo was gained during the search process in Google.
 Large images have been placed in the front of the home page with the help of Materialize Slider.
 Examples of sites:
+
  [Whatmollymade](https://whatmollymade.com/)
 
  [Unsplash](https://unsplash.com/s/photos/man-proudkter)
@@ -532,8 +533,8 @@ The W3C Markup Validator, W3C CSS Validator and Beautify Tools JavaScript Valida
     - https://www.recipetips.com/
   
   - And even from the following sites
-    - Unsplash
-    - Google
+    - [Unsplash](https://unsplash.com/s/photos/food)
+    - [Google](https://www.google.com/search?q=food+images&rlz=1C1SQJL_svSE836SE836&sxsrf=ALeKk020Oi_e04eJWFnNI5tP5vxfNUAspQ:1627399177604&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjt142vxoPyAhVplYsKHUDLD4wQ_AUoAXoECAIQAw&biw=1396&bih=656)
 
 ## Acknowledgements
 - I have get great support from my family, first and foremost my husband, as well as my best friend
