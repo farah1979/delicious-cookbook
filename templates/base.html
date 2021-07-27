@@ -27,9 +27,11 @@
             <nav class="nav-extended">
                 <div class="nav-wrapper">
                     <a href="{{url_for('home')}}" class="brand-logo">
-                        <img src="{{url_for('static',filename='images/logo.jpg')}}" alt="logo" class="logo-image" />
+                        <img src="{{url_for('static',filename='images/logo.jpg')}}" alt="logo" 
+                        class="logo-image" />
                     </a>
-                    <a href="{{ url_for('home')}}" data-target="mobile-demo" class="sidenav-trigger right">
+                    <a href="{{ url_for('home')}}" data-target="mobile-demo" 
+                    class="sidenav-trigger right">
                         <i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{url_for('home')}}">Home</a></li>
