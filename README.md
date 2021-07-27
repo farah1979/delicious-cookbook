@@ -23,7 +23,7 @@
   - The user of the site makes it easy for him to publish his favorite recipe and spread it globally.
   - The user is patient famous in the field of cooking through our website.
 
-# Scoop 
+# Scope
 This is the **Third project** as it relies on the latest technologies and programming languages, making the site more interactive and easier to deal with users, and this is the main goal of it... The project consists of **HTML 5**, **Stylesheet CSS**, **Jquery**, **Python language** and the latest libraries, including That's **Flask**, linked to a solid database, which is **MongoDB** and linked to better software tools. It allowed and facilitated for me to run reliable and repeatable tests for every deployment. Integration with **Herkou CI/CD** makes me fast, flexible and efficient.
 <hr>
 
@@ -404,10 +404,138 @@ The W3C Markup Validator, W3C CSS Validator and Beautify Tools JavaScript Valida
   - Make sure that after confirmation recipe will be deleted from the website and database.
 
 ### Manage Categories Page
+  - Confirm that you can log in as an admin efter type username: adminfa and password :123abc.
+  - Confirm that the page title display correctly.
+  - Confirm that only admin have an access to add/edit/read/delete any category.
+  - After you log in as admin you will see one page has been added in the navbar called Manage Categories.
+  - Confirm that when click on it will open new page and you will see a button (Add Category) in the top of the side.
+  - Hover over all buttons you will see that the color will change.
+  Check that all categories have been retrived form the MongoDB(categories collection) to the site.
+  - Check that all categires orderd alphabetical order.
+  - Check that all categories like a Materialize card and every one have two buttons one for **Edit** and another for **Delete**.
+
 ### Add Category Page
+  - Confirm that all content is visible.
+  - Expand and reduce a screen size to verify that the page and all the components looks good on a different screen widths.
+  - Confirm that it is unable to add any new category without fill the form field correctly.
+  - Confirm that active field will change the color.
+  - Check that afeter you write a new category and click on the button (Add category) the page will redirect to the main categories page and the corresponding message will apeare.
+  - Confirm that the button(Add Category) work fine and the color change when you hover over it.
+
 ### Edit Category Page
+  - Confirm that all content is visible.
+  - Expand and reduce a screen size to verify that the page and all the components looks good on a different screen widths.
+  - Verify that a field is automatically filled in from the database, with corresponding category name.
+  - Verify any changes are submitted to the database when the 'Submit Changes' button is clicked.
+  - Confirm that a updated message will appeare in the top of the main categires page.
+  - Check that the page will redirect to the manage categories page after submited.
+  - Check that the Cancel button is work good and redirct to the main categories page.
 ### Delete Category Page
+  - The category can be deleted from website and database directly from the manage categories page by clicking on 'Delete' button.
+  - Confirm that category will be deleted from the website and database.
 
+## Testing User Stories from the User Experience section
+### As a new visitors
+  - Understand the content of the site smoothly without complication by entering the site where the visitor sees the site logo at the top of the page on the right side, which indicates this logo what is the purpose of building this site and on the left side of the navigation bar he will see four clear and understandable pages of their names.
+  - When scrolling down the home page, the user can easily get a very clear idea of ​​the purpose of the website.
+  - As a new user, I would like to see a website working properly on my device.
+  - The website has a clear, understandable, responsive and stable navigation bar, which allows the user to navigate pages and sections easily.
+  - I want a website that can respond on different devices and different displays and work correctly with different browsers as well.
+  - I want a site with clear content, beautiful images, and comfortable writing fonts.
+  - As a new visitor, I want to have the ability to browse all the recipes posted on the site;
+  - The visitor can browse all the recipes added in the site by clicking on the recipes page in the navigation bar easily.
+  - The new visitor can click on any recipe found in the Feature section, where he will also be transferred directly to the recipes page to see what the site contains of different and delicious recipes, or he can also click on the View all recipes button, and thus he will be accepted directly to the recipes page as well.
+  - The visitor can get acquainted with the most important recipes rated by displaying them on the front of the site and also can click on any recipe he likes to learn more about the recipe and to view all the recipe data in the form of a fully featured page.
+  - In the interface of the home page, the visitor will see the last 4 newly added recipes and can easily click on them to get the recipe with its ingredients and methods of work.
+  - As a new visitor, to facilitate his work and to gain time, he can filter the required recipe from among the recipes by name or ingredient and search for it using keywords on the main recipes page.
+  - All buttons, models and links have been tested many times and work perfectly.
+  - Facebook, Instagram, and Linkedin links can be found in the footer of each page and each social link will open a new tab for the user.
 
+### As a frequent visitors
+  - As a frequent visitor, I want to check if there are any updates or newly added information.
+  - I want to make sure that the site works easily in all devices and that there are no apparent problems.
+  - As an frequent visitor can easily access the registration page in two ways :
+    - As for clicking on the registration button located on the main page among the large slider images displayed to the user, where the new user is welcomed and encouraged to become one of the team members. There is a button while clicking on it, he will see himself go directly to the registration page.
+    - Or by clicking on the corresponding link in the navigation bar and there he will be able to do a quick and easy registration process.
+  - As an interested visitor with an account on the site I want to have the ability to add/modify/delete my recipes on/from the site.
+  - Each registered user has the ability to create, edit and delete their own recipes. After adding his recipe, the registrant will see that it will appear on his profile page and also on the general recipes page.
+  - As an interested visitor, I want to easily navigate through the recipes I have posted.
+  - As an frequent visitor, I would like to get more information about Delicious Cookbook site and see their social media pages and all links works fine and smoothly.
+  - As an interested visitor, I want to see the newest recipes on the home page.
 
+## Further testing
+  - The site was tested on different browsers, such as Google Chrome, Mozilla Firefox, Microsoft Edge and Safari.
+  - To ensure that the website is responsive and work corect it is shown on different devices sizes such as desktops, laptops, tablets (Samsung galaxy tab A), and mobile (Iphone 6, IPhone X, IPhone XS Max, IPhone11 PRO MAX, and Samsung Galaxy S10).
+  - All testing was done on the site to ensure that all pages were linking correctly.
+  - All buttons, form and links have been tested multiple times to ensure they are working properly.
+  - Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
+## Known Bugs
+  - No known bugs.
+
+# Deployment
+## GitHub Pages
+  - This project was developed using the GitPod, committed to Git and pushed to [GitHub repository](https://github.com/farah1979/delicious-cookbook).
+  - - The following GIT commands were used throughout deployment:
+### console
+    - git status ------ used to check the status of files and any changes made / untracked.
+    - git add -A ------ to store the files that untracked.
+    - git commit -m " " ------ to commit the files.
+    - git push ------ to push the files to the master branch of the GitHub repository.
+
+## Hosting on Heroku
+- This [Delicious Cookbook Website](http://delicious-cookbook.herokuapp.com/) is hosted using Heroku, deployed directly from the master branch via GitHub.
+- The following steps were taken to complete the hosting process.
+     -  Set debug=False in the app.py file.
+     -  Created a requirements.txt file from the terminal, using pip3 freeze --local > requirements.txt, to allow Heroku to detect this project as a python app and any required package dependencies.
+     - Created a Procfile using echo web: python app.py > Procfile from the Gitpod terminal so Heroku would be informed on which file runs the app and how to run this project.
+     - 	Created a new Heroku app, delicious-cookbook and set its region to Europe.
+     - 	Automatic deployment was set up on Heroku - On the app dashboard, in the deploy menu. Connect to GitHub section. The GitHub repository was searched for and connected to the app.
+     - 	In the settings tab on the app dashboard, 'Reveal Config Vars' was used to tell Heroku which variables are required to run the app. The following config vars were added:
+        - IP
+        - PORT
+        - SECRET_KEY
+        - MONGO_URI
+        - MONGO_DBNAME
+     -  In GitPod, a check was completed to ensure the master branch was up to date and all commits had been pushed to GitHub, ready for Heroku to deploy.
+     - Clicked the Enable Automatic Deploys button located in the Deploy section of Heroku to allow for automatic deploys.
+     - Clicked the Deploy Branch button located in the Deploy section of Heroku to finally deploy this project.
+     - Clicked the View button to launch this project's app.
+- The deployed site on Heroku will update automatically upon new commits to the master branch in the [GitHub Repository](https://github.com/farah1979/delicious-cookbook/).
+
+## Forking the GitHub Repository
+  - A forking the GitHub Repository is used for copying of the original depository to  GitHub account. It allows viewing or making changes in the project without affecting the original repository. It can be done using the following steps: 
+    1. Log in to GitHub and go to the GitHub Repository.
+    2. At the top-right of the page, just below the GitHub navigation bar, the "Fork" Button is located.
+    3. Click the “Fork” button and get a copy of the original repository to a GitHub account. 
+<hr>
+
+# Credits
+## Code
+### Materialize(1.0.0)
+  - Materialize Grid: used to easy and smoothy build the main stractures of my project.
+  - Materialize components: I have used many components to create a navigation bar, slider images, buttons, card items  and more to make the Website more smoothly and responsive.
+
+### codepen.io
+  - This site was used by the programmer to gain the idea of rating and placing stars in the famous recipes on the home page of the site.
+
+### Code Institute Lectures
+  - I was referring to some of the lectures during the construction of the project to remind some data that I had forgotten.
+
+## Content
+- All content was written by the developer.
+
+## Media
+  - Images were used from the differents cooking sites:
+    - https://whatmollymade.com/
+    - https://www.jamieoliver.com/features/category/recipes/
+    - https://www.recipetips.com/
+  
+  - And even from the following sites
+    - Unsplash
+    - Google
+
+## Acknowledgements
+- I have get great support from my family, first and foremost my husband, as well as my best friend
+- My Mentor Akshat Garg Who has always been unable to describe his high humanity, his great support, his heart that expanded all my questions, and his effective and useful feedback.
+- Code Institute for teaching me how to make coding heappy.
