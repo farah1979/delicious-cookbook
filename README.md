@@ -83,10 +83,13 @@ We have used two other colors in the buttons, which are the **green color** to a
   1- For the general public where they can see and navigate between 4 pages only(Home, Recipes, Log In, Register)
 
   [View the Home, Recipe and register wireframes](static/files/Wireframes-ms3.pdf)
+<br>
   [View the Login-page wireframe](static/files/login-wireframe.pdf)
 
   2- For users who have a personal account on our site, they have more privileges and possibilities in terms of adding, modifying and deleting the recipe, and here Create, Read, Update, and Delete **(CRUD)** which are the four functions takes place,they can navigate in addition to the four pages  Home, Recipes, Login, Regiter mentioned above they can see **Add recipe** and thier **Profile page**.
+
   [View the add recipe and edit recipe wireframes](static/files/add-edit-recipe-wireframs.pdf)
+<br>
 
   [View the add recipe and edit recipe wireframes](static/files/profileandrecipe-page.pdf)
 
@@ -209,8 +212,6 @@ Here all the recipes added to the site are displayed by all members of the site 
 and this section is made with Materialize grid system to be concisely and responsive depending on a screen size.
 
   - [view the recipe page](https://delicious-cookbook.herokuapp.com/recipes)
-
-   - [view the recipe-detail page](https://delicious-cookbook.herokuapp.com/recipe_detial/60ecb0e0713e01e2b31a8d8e)
 
 #### Search (def search()) in python file:
  Through this searcher, you can search for the required recipe either by the name of the recipe or one of the words used in the description of the recipe, and then the recipe will be displayed if founded, by retrieving all the information from the database, and if the recipe is not found, a message will appear to the user Apologies for not being able to find the recipe.
