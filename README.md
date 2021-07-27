@@ -1,5 +1,5 @@
 <div align="center">
-<img src="static/images/logo.jpg" style="height: 50px;">
+<img src="static/images/logo.jpg" style="height: 20px;">
 </div>
 <div align="center">
 <span  style="font-size:40px;color:#fff"> Delicious Cook Book
