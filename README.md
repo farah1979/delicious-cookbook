@@ -1,4 +1,6 @@
 
+<img src="static/images/logo.jpg" style="height: 60px; width: 60px; border-radius: 60px;">
+
 <div align="center">
 <span  style="font-size:40px;color:#fff"> Delicious Cook Book
 </span>
