@@ -15,8 +15,9 @@
         <h6 class="recipe-description">{{ recipe.recipe_description }}</h6>
 
     </div>
-
+    
     <div class="col s12 m4" style="padding-top: 10px;">
+        {% if session.user|lower == recipe.author|lower %}
         <!---------------------------------------Edit-recipe-->
         <a class="btn-small edit-btn" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}">
             Edit <i class="fas fa-plus"></i></a>
@@ -35,6 +36,7 @@
                 <a href="#!" class="modal-close btn red"> Cancel</a>
             </div>
         </div>
+        {% endif %}
     </div>
 
     <div class="col s12 m4 recipe_table">
