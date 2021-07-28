@@ -52,8 +52,16 @@ body {
 }
 
 .sidenav li > a {
-    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2rem;
     font-weight: 500;
+    color: #683b12;
+}
+
+.sidenav li > a:hover{
+    background-color: #efebe9;
+
 }
 
 .menu {
@@ -61,7 +69,12 @@ body {
 }
 
 .cook-list {
-    font-size: 1.5rem;
+    padding: 0;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #683b12;
 }
 
 .page-footer {
@@ -140,7 +153,7 @@ body {
 .header-title {
     font-family: "roboto", sans-serif;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     letter-spacing: 1px;
     text-shadow: 1px 1px;
     color: #683b12;
@@ -609,7 +622,7 @@ svg {
 .category-title {
     font-family: "roboto", sans-serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #683b12;
@@ -627,6 +640,10 @@ svg {
 
 .add_sec-heg {
     min-height: 470px;
+}
+
+.cancel-cat{
+    margin-bottom: 10px;
 }
 
 /*--------------------------------------Recipe-detail-page*/
@@ -701,17 +718,21 @@ ol {
     .row .col.m3 {
         width: 100%;
     }
-    .row .col.m4 {
-        width: 100%;
-    }
+    
     label {
         font-size: 10px;
     }
 }
 
 @media only screen and (width: 768px) {
+    .sidenav li > a {
+        font-size: 2rem;
+        line-height: 50px;
+    }
     .row .col.m4 {
         width: 50%;
+        max-height: 430px;
+        margin-bottom: 50px;
     }
     .row .col.m3 {
         width: 50%;

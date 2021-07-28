@@ -37,7 +37,7 @@
                         <li><a href="{{url_for('home')}}">Home</a></li>
                         <li><a href="{{url_for('recipes')}}">Recipes</a></li>
                         {% if session.user %} {% if session.user == "adminfa"| lower %}
-                        <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
+                        <li><a href="{{url_for('get_categories')}}">ManageCategories</a></li>
                         {% endif %}
                         <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
                         <li><a href="{{ url_for('profile', first_name=session['user'])}}">Profile</a></li>
@@ -51,10 +51,11 @@
             </nav>
 
             <!---------------------------------Mobile-bar-->
-            <ul class="sidenav" id="mobile-demo">
+            <ul class="sidenav" id="mobile-demo" >
+                
                 <li>
-                    <a href="{{url_for('home')}}">
-                        <h4 class="brown-text text-darken-1 cook-list">Cookbook</h4>
+                    <a href="{{url_for('home')}}" class="cook-list">
+                        Delicious Cookbook
                     </a>
                 </li>
                 <li><a href="{{url_for('home')}}">Home</a></li>

@@ -49,7 +49,7 @@ This is the **Third project** as it relies on the latest technologies and progra
   - I want to be able to delete my old and unused recipes for a long time.
   - I want to be able to easily update my new recipes.
   - I want to easily navigate the site and browse the posted recipes.
-  - I would like to have the feature to change, edit or delete the recipe I created, and no other visitor can manipulate my recipes.
+  - I would like to have the access to change, edit or delete the recipe I created, and no other visitor can manipulate my recipes.
   - I want to become famous through this site and thus reach my goal in the world of cooking and fame by owning the recipe and putting my name on it.
   - I want to browse the site in different sizes smoothly.
   - I want to find the most famous recipes in the world through this site.
@@ -201,7 +201,7 @@ The benefit of the navigation bar is to put links to all the pages that have bee
 The Home page which consists of several parts and these are Slider-images, Feature recipes, Main course-rated-recipes, Dessert-rated-recipes, Lastest-recipes:
   - Slider-images:The sliders were used in the interface of the page as large images expressing the content of the site, and in each picture includes a link to a specific page to encourage the visitor to become part of our team and also encourage him to add his favorite recipes and the slider was created by Materialize. This section is responsive depending on a screen size by useing Materialize grid system.
 
-  - Feature recipes: Our featured recipes are hand selected daily to give the visitor ideas to cook or bake in the kitchen.Each recipe has a link to the recipes page for many other options and have been used Materialize grid system.
+  - Feature recipes: Our featured recipes are hand selected daily to give the visitor ideas to cook or bake in the kitchen.Each recipe has a link to the corresponding recipe page for take a look about a recipe with more instructions, this section has been used Materialize grid system.
 
   -  Main course-rated-recipes and Dessert-rated-recipes: In this field, immutable static images have been placed to display the most important and most famous international recipes.and this section is concisely and responsive depending on a screen size by useing Materialize grid system.
 
@@ -305,7 +305,7 @@ The W3C Markup Validator, W3C CSS Validator and Beautify Tools JavaScript Valida
 ### Home page
   - Open the page in different browsers and scroll down to make sure everything is displayed correctly.
    - Images_Slider works correctly on devices of different sizes, in addition to clicking on each button you will see that it will take you to the correct relevant page.
-  - Feature and reated Section
+  - Feature and latest recipes Section
     - Expand and reduce the screen size to verify that this section looks good on different displays.
     - Ensure that all images and text are displayed correctly.
     - Check all the buttons and you will notice that they are working correctly and that they take you to the correct page.
@@ -448,7 +448,8 @@ The W3C Markup Validator, W3C CSS Validator and Beautify Tools JavaScript Valida
   - I want a site with clear content, beautiful images, and comfortable writing fonts.
   - As a new visitor, I want to have the ability to browse all the recipes posted on the site;
   - The visitor can browse all the recipes added in the site by clicking on the recipes page in the navigation bar easily.
-  - The new visitor can click on any recipe found in the Feature section, where he will also be transferred directly to the recipes page to see what the site contains of different and delicious recipes, or he can also click on the View all recipes button, and thus he will be accepted directly to the recipes page as well.
+  - The new visitor can click on any recipe found in the Feature section, where he will also be transferred directly to the  corresponding recipe page to see more detial about the recipe.
+  -  The new vistors can click on the View all recipes button, and thus will take a user directly to the recipes page as well.
   - The visitor can get acquainted with the most important recipes rated by displaying them on the front of the site and also can click on any recipe he likes to learn more about the recipe and to view all the recipe data in the form of a fully featured page.
   - In the interface of the home page, the visitor will see the last 4 newly added recipes and can easily click on them to get the recipe with its ingredients and methods of work.
   - As a new visitor, to facilitate his work and to gain time, he can filter the required recipe from among the recipes by name or ingredient and search for it using keywords on the main recipes page.
